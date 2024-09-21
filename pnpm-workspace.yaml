@@ -1,2 +1,23 @@
 packages:
+  - 'apps/*'
   - 'packages/*'
+catalogs:
+  next:
+    '@next/bundle-analyzer': 15.0.0-canary.160
+    eslint-config-next: 15.0.0-canary.160
+    next: 15.0.0-canary.160
+  payload:
+    '@payloadcms/db-mongodb': 3.0.0-beta.108
+    '@payloadcms/graphql': 3.0.0-beta.108
+    '@payloadcms/next': 3.0.0-beta.108
+    '@payloadcms/richtext-lexical': 3.0.0-beta.108
+    '@payloadcms/storage-s3': 3.0.0-beta.108
+    '@payloadcms/translations': 3.0.0-beta.108
+    '@payloadcms/ui': 3.0.0-beta.108
+    payload: 3.0.0-beta.108
+  react:
+    '@types/react': npm:types-react@19.0.0-rc.1
+    '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
+    react-dom: 19.0.0-rc-5dcb0097-20240918
+    react-is: 19.0.0-rc-5dcb0097-20240918
+    react: 19.0.0-rc-5dcb0097-20240918
