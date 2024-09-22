@@ -8,6 +8,20 @@
   "extends": "nx/presets/npm.json",
   "defaultBase": "develop",
   "generators": {
+    "@peaks/nx": {
+      "library-js": {
+        "skipTsConfig": true,
+        "skipPackageJson": true
+      },
+      "library-next": {
+        "skipTsConfig": true,
+        "skipPackageJson": true
+      },
+      "library-react": {
+        "skipTsConfig": true,
+        "skipPackageJson": true
+      }
+    },
     "@nx/js": {
       "library": {
         "bundler": "tsc",

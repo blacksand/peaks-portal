@@ -1,0 +1,13 @@
+{
+  "name": "@peaks/nx",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "generators": "./generators.json",
+  "dependencies": {
+    "@nx/devkit": "19.8.0"
+  }
+}

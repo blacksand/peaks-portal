@@ -11,7 +11,9 @@
     "rootDir": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "paths": {},
+    "paths": {
+      "@peaks/nx": ["tools/peaks-nx/src/index.ts"]
+    },
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
