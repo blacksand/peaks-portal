@@ -1,0 +1,22 @@
+{
+  "name": "@peaks/common-utils",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "check-types": "tsc -b --noEmit"
+  },
+  "peerDependencies": {
+    "loglevel": "^1.9.2",
+    "loglevel-plugin-prefix": "^0.8.4",
+    "remeda": "^2.14.0"
+  }
+}

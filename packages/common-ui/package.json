@@ -1,0 +1,19 @@
+{
+  "name": "@peaks/common-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "check-types": "tsc -b --noEmit"
+  },
+  "peerDependencies": {
+    "fast-blurhash": "^1.1.4"
+  }
+}

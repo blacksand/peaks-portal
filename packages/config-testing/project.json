@@ -1,0 +1,9 @@
+{
+  "name": "config-testing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/config-testing/src",
+  "projectType": "library",
+  "tags": ["type:util", "scope:shared"],
+  "// targets": "to see all targets run: nx show project config-testing --web",
+  "targets": {}
+}

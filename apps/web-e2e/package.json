@@ -1,0 +1,9 @@
+{
+  "name": "web-e2e",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
