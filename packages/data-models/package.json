@@ -1,0 +1,13 @@
+{
+  "name": "@peaks/data-models",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.s"
+    }
+  }
+}

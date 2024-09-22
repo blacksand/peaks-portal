@@ -1,0 +1,19 @@
+{
+  "name": "data-models",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/data-models/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/data-models",
+        "main": "packages/data-models/src/index.ts",
+        "tsConfig": "packages/data-models/tsconfig.lib.json",
+        "assets": ["packages/data-models/*.md"]
+      }
+    }
+  }
+}

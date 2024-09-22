@@ -1,4 +1,9 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "extends": "nx/presets/npm.json",
   "defaultBase": "develop",
@@ -112,11 +117,6 @@
       "plugin": "@nx/vite/plugin"
     }
   ],
-  "pluginsConfig": {
-    "@nx/js": {
-      "analyzeSourceFiles": true
-    }
-  },
   "targetDefaults": {
     "test": {
       "cache": true,
