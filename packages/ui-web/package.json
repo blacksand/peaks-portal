@@ -1,5 +1,5 @@
 {
-  "name": "@peaks/data-models",
+  "name": "@peaks/ui-web",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -10,13 +10,10 @@
       "import": "./dist/src/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.lib.json",
     "check-types": "tsc -b --noEmit"
   },
   "peerDependencies": {},
-  "dependencies": {},
-  "typings": "./src/index.d.ts"
+  "dependencies": {}
 }
