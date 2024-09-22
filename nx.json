@@ -1,11 +1,74 @@
 {
-  "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "nxCloudId": "66eecd88bb580d02cfb47bf5",
+  "extends": "nx/presets/npm.json",
+  "defaultBase": "develop",
+  "generators": {
+    "@nx/js": {
+      "library": {
+        "bundler": "tsc",
+        "linter": "eslint",
+        "projectNameAndRootFormat": "as-provided",
+        "skipTsConfig": true,
+        "strict": true,
+        "unitTestRunner": "vitest"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "linter": "eslint",
+        "style": "css",
+        "projectNameAndRootFormat": "as-provided",
+        "skipPackageJson": true,
+        "skipTsConfig": true,
+        "strict": true,
+        "unitTestRunner": "vitest"
+      },
+      "library": {
+        "bundler": "tsc",
+        "component": false,
+        "linter": "eslint",
+        "projectNameAndRootFormat": "as-provided",
+        "skipTsConfig": true,
+        "strict": true,
+        "style": "css",
+        "unitTestRunner": "vitest"
+      },
+      "component": {
+        "style": "none",
+        "nameAndDirectoryFormat": "as-provided"
+      }
+    },
+    "@nx/react": {
+      "library": {
+        "bundler": "none",
+        "component": false,
+        "linter": "eslint",
+        "setParserOptionsProject": true,
+        "skipTsConfig": true,
+        "strict": true,
+        "style": "css",
+        "unitTestRunner": "vitest"
+      }
+    }
+  },
   "namedInputs": {
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
-    "default": ["sharedGlobals"]
+    "default": ["sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.graphql",
+      "!{projectRoot}/README.md",
+      "!{projectRoot}/upload",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/vitest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s"
+    ]
   },
+  "nxCloudId": "66eecd88bb580d02cfb47bf5",
   "plugins": [
     {
       "plugin": "@nx/next/plugin",
@@ -29,16 +92,15 @@
       }
     },
     {
-      "plugin": "@nx/storybook/plugin",
       "options": {
         "serveStorybookTargetName": "storybook",
         "buildStorybookTargetName": "build-storybook",
         "testStorybookTargetName": "test-storybook",
         "staticStorybookTargetName": "static-storybook"
-      }
+      },
+      "plugin": "@nx/storybook/plugin"
     },
     {
-      "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
         "testTargetName": "test",
@@ -46,20 +108,39 @@
         "previewTargetName": "preview",
         "serveStaticTargetName": "serve-static",
         "typecheckTargetName": "check-types"
-      }
+      },
+      "plugin": "@nx/vite/plugin"
     }
   ],
-  "targetDefaults": {
-    "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
     }
   },
-  "generators": {
-    "@nx/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
+  "targetDefaults": {
+    "test": {
+      "cache": true,
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"]
+    },
+    "build": {
+      "cache": true,
+      "outputs": ["{projectRoot}/dist"],
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    },
+    "@nx/js:swc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   }
 }

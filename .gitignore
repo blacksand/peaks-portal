@@ -47,3 +47,8 @@ out
 
 
 storybook-static
+
+.vite
+vite.config.ts.timestamp-*
+vitest.config.ts.timestamp-*
+eslint.config.js\?*
