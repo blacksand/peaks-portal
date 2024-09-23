@@ -1,7 +1,9 @@
+import type { UploadField } from 'payload'
+
 import type { CP } from '../types'
 import { createField } from '../utils/create-field'
 
-export function upload(params: CP<'upload'>) {
+export function upload(params: CP<'upload'>): UploadField {
   const { name, label, hasMany, ...options } = params
 
   return createField({

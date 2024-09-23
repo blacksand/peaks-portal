@@ -31,6 +31,7 @@ export function testingConfig(configFileUrl) {
       },
       environment: 'jsdom',
       globals: true,
+      passWithNoTests: true,
       restoreMocks: true,
       root: projectRoot,
       watch: false,

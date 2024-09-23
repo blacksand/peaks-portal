@@ -26,6 +26,7 @@ export function testingConfig(configFileUrl) {
       },
       environment: 'node',
       globals: true,
+      passWithNoTests: true,
       restoreMocks: true,
       root: projectRoot,
       watch: false,

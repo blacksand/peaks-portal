@@ -1,16 +1,12 @@
 import type { Field, RowField } from 'payload'
 
-import { deepMerge } from '@peaks/utils-common'
+export function withRow(incomingFields: Field[]): RowField {
+  const width = Math.round((100 / incomingFields.length) * 100) / 100
 
-export function withRow(
-  incomingFields: Field[],
-  overrides: Partial<RowField> = {},
-): RowField {
-  const width = Math.round(100 / incomingFields.length * 100) / 100
+  const fields: Field[] = incomingFields.map(({ admin, ...field }) => ({
+    ...field,
+    admin: { ...admin, width },
+  })) as Field[]
 
-  const fields = incomingFields.map((field) =>
-    deepMerge({ admin: { style: { flex: `${width} ${width} 0` } } }, field),
-  )
-
-  return deepMerge({ type: 'row', fields }, overrides)
+  return { type: 'row', fields }
 }

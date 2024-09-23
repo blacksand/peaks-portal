@@ -18,12 +18,7 @@
     "check-types": "tsc -b --noEmit"
   },
   "peerDependencies": {
-    "@peaks/data-models": "workspace:^",
-    "payload": "catalog:payload",
-    "remeda": "^2.14.0",
-    "ts-essentials": "^10.0.2"
-  },
-  "devDependencies": {
+    "@payloadcms/richtext-lexical": "catalog:payload",
     "@peaks/data-models": "workspace:^",
     "payload": "catalog:payload",
     "remeda": "^2.14.0",

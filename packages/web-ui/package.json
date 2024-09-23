@@ -14,6 +14,10 @@
     "build": "tsc -p tsconfig.lib.json",
     "check-types": "tsc -b --noEmit"
   },
-  "peerDependencies": {},
-  "dependencies": {}
+  "peerDependencies": {
+    "next": "catalog:next"
+  },
+  "devDependencies": {
+    "next": "catalog:next"
+  }
 }
