@@ -129,7 +129,7 @@ const config = eslintConfig({
   next: true,
   projectRoot: getProjectRoot(import.meta.url),
 }).append({
-  name: 'peaks/${options.projectName}',
+  name: 'peaks/${options.projectName}/rules',
 })
 
 export default config

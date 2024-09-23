@@ -1,10 +1,10 @@
 import { eslintConfig, getProjectRoot } from '@peaks/config-eslint'
 
 const config = eslintConfig({
-  next: true,
   projectRoot: getProjectRoot(import.meta.url),
+  react: true,
 }).append({
-  name: 'peaks/ui-web',
+  name: 'peaks/cms-config/rules',
 })
 
 export default config

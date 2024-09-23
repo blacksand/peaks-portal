@@ -1,0 +1,32 @@
+{
+  "name": "@peaks/cms-utils",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "typings": "./src/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.lib.json",
+    "check-types": "tsc -b --noEmit"
+  },
+  "peerDependencies": {
+    "@peaks/data-models": "workspace:^",
+    "payload": "catalog:payload",
+    "remeda": "^2.14.0",
+    "ts-essentials": "^10.0.2"
+  },
+  "devDependencies": {
+    "@peaks/data-models": "workspace:^",
+    "payload": "catalog:payload",
+    "remeda": "^2.14.0",
+    "ts-essentials": "^10.0.2"
+  }
+}

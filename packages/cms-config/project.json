@@ -1,0 +1,9 @@
+{
+  "name": "cms-config",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/cms-config/src",
+  "projectType": "library",
+  "tags": ["type:cms", "scope:web"],
+  "// targets": "to see all targets run: nx show project cms-config --web",
+  "targets": {}
+}

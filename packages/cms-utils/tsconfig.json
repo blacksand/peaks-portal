@@ -2,12 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "incremental": true,
-    "tsBuildInfoFile": "../../dist/packages/ui-web/.tsbuildinfo",
-    "jsx": "react-jsx",
-    "allowJs": false,
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "tsBuildInfoFile": "../../dist/packages/cms-utils/.tsbuildinfo"
   },
   "references": [
     {

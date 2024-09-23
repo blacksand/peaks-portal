@@ -21,15 +21,15 @@ export function nx({ allowedGlobalImport } = {}) {
             allow: allowedGlobalImport ?? [],
             depConstraints: [
               {
-                onlyDependOnLibsWithTags: ['scope:shared', 'scope:cms', 'scope:web'],
+                onlyDependOnLibsWithTags: ['scope:shared', 'scope:mobile', 'scope:web'],
                 sourceTag: 'scope:app',
               },
               {
-                onlyDependOnLibsWithTags: ['scope:shared', 'scope:cms'],
-                sourceTag: 'scope:cms',
+                onlyDependOnLibsWithTags: ['scope:shared', 'scope:mobile'],
+                sourceTag: 'scope:mobile',
               },
               {
-                onlyDependOnLibsWithTags: ['scope:shared', 'scope:cms', 'scope:web'],
+                onlyDependOnLibsWithTags: ['scope:shared', 'scope:web'],
                 sourceTag: 'scope:web',
               },
               {
@@ -37,20 +37,16 @@ export function nx({ allowedGlobalImport } = {}) {
                 sourceTag: 'scope:shared',
               },
               {
-                onlyDependOnLibsWithTags: ['type:plugin', 'type:cms', 'type:ui', 'type:util'],
+                onlyDependOnLibsWithTags: ['type:ui', 'type:cms', 'type:util'],
                 sourceTag: 'type:app',
               },
               {
-                onlyDependOnLibsWithTags: ['type:cms', 'type:ui', 'type:util'],
-                sourceTag: 'type:plugin',
-              },
-              {
-                onlyDependOnLibsWithTags: ['type:ui', 'type:util', 'type:cms'],
-                sourceTag: 'type:ui',
-              },
-              {
-                onlyDependOnLibsWithTags: ['type:plugin', 'type:cms', 'type:util'],
+                onlyDependOnLibsWithTags: ['type:ui', 'type:cms', 'type:util'],
                 sourceTag: 'type:cms',
+              },
+              {
+                onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+                sourceTag: 'type:ui',
               },
               {
                 onlyDependOnLibsWithTags: ['type:util'],

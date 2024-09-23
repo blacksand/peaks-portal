@@ -1,5 +1,5 @@
 {
-  "name": "@peaks/ui-web",
+  "name": "@peaks/web-ui",
   "type": "module",
   "version": "0.0.1",
   "private": true,
