@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm exec nx build web",
+  "devCommand": "pnpm exec nx dev web",
+  "framework": "nextjs",
+  "installCommand": "pnpm install",
+  "outputDirectory": "apps/web/.next"
+}
