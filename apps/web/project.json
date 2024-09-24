@@ -6,6 +6,10 @@
   "tags": ["type:app", "scope:web"],
   "// targets": "to see all targets run: nx show project web --web",
   "targets": {
+    "build": {
+      "cache": true,
+      "outputs": ["{projectRoot}/.next"]
+    },
     "dev": {
       "dependsOn": ["^build"]
     },
