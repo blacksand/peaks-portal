@@ -42,7 +42,6 @@ overrides:
   eslint-plugin-react-hooks: 5.1.0-beta-26f2496093-20240514
   react: 19.0.0-rc-5dcb0097-20240918
   react-dom: 19.0.0-rc-5dcb0097-20240918
-  react-is: 19.0.0-rc-5dcb0097-20240918
   scheduler: 0.25.0-rc-5dcb0097-20240918
 
 importers:
@@ -9278,8 +9277,14 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-5dcb0097-20240918
 
-  react-is@19.0.0-rc-5dcb0097-20240918:
-    resolution: {integrity: sha512-ntphFZK4sjyOsVLvJExLYcf6XLaRJE8duCzHbYX9IDzdu71fSXgCrHsj/2VzECURVM3opCcSlyThlKM+kfL8WA==}
+  react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-is@17.0.2:
+    resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+
+  react-is@18.3.1:
+    resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
   react-onclickoutside@6.13.1:
     resolution: {integrity: sha512-LdrrxK/Yh9zbBQdFbMTXPp3dTSN9B+9YJQucdDu3JNKRrbdU+H+/TVONJoWtOwy4II8Sqf1y/DTI6w/vGPYW0w==}
@@ -19887,7 +19892,7 @@ snapshots:
 
   hoist-non-react-statics@3.3.2:
     dependencies:
-      react-is: 19.0.0-rc-5dcb0097-20240918
+      react-is: 16.13.1
 
   homedir-polyfill@1.0.3:
     dependencies:
@@ -23013,13 +23018,13 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 19.0.0-rc-5dcb0097-20240918
+      react-is: 17.0.2
 
   pretty-format@29.7.0:
     dependencies:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
-      react-is: 19.0.0-rc-5dcb0097-20240918
+      react-is: 18.3.1
 
   prismjs@1.29.0: {}
 
@@ -23044,7 +23049,7 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 19.0.0-rc-5dcb0097-20240918
+      react-is: 16.13.1
 
   proxy-addr@2.0.7:
     dependencies:
@@ -23172,7 +23177,11 @@ snapshots:
     dependencies:
       react: 19.0.0-rc-5dcb0097-20240918
 
-  react-is@19.0.0-rc-5dcb0097-20240918: {}
+  react-is@16.13.1: {}
+
+  react-is@17.0.2: {}
+
+  react-is@18.3.1: {}
 
   react-onclickoutside@6.13.1(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:

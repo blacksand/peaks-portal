@@ -103,15 +103,14 @@
     },
     "overrides": {
       "@nx/vite>vitest": "$vitest",
-      "@testing-library/react>@types/react": "npm:types-react@19.0.0-rc.1",
-      "@testing-library/react>@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+      "@testing-library/react>@types/react": "$@types/react",
+      "@testing-library/react>@types/react-dom": "$@types/react-dom",
       "@types/react": "npm:types-react@19.0.0-rc.1",
       "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
       "eslint": "$eslint",
       "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks",
-      "react": "catalog:react",
-      "react-dom": "catalog:react",
-      "react-is": "catalog:react",
+      "react": "$react",
+      "react-dom": "$react-dom",
       "scheduler": "0.25.0-rc-5dcb0097-20240918"
     },
     "peerDependencyRules": {
