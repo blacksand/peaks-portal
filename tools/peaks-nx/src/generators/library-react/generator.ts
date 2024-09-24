@@ -63,10 +63,12 @@ function updatePackageJson(tree: Tree, options: NormalizedSchema) {
 
       exports: {
         '.': {
-          import: './dist/src/index.js',
-          types: './dist/src/index.d.ts',
+          import: './dist/index.js',
+          types: './src/index.ts',
         },
       },
+      main: './dist/index.js',
+      types: './dist/index.d.ts',
 
       scripts: {
         'build': 'tsc -p tsconfig.lib.json',

@@ -60,8 +60,8 @@ function updatePackageJson(tree: Tree, options: NormalizedSchema) {
 
       exports: {
         '.': {
-          import: './dist/src/index.js',
-          types: './dist/src/index.d.ts',
+          import: './dist/index.js',
+          types: './src/index.ts',
         },
       },
 
