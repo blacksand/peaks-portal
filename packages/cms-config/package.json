@@ -6,10 +6,12 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "import": "./dist/src/index.js"
       "types": "./src/index.ts",
       "import": "./dist/index.js"
+    },
+    "./utilities": {
+      "types": "./src/lib/utilities/exports.ts",
+      "import": "./dist/lib/utilities/exports.js"
     }
   },
   "scripts": {

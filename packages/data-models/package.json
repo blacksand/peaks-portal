@@ -17,7 +17,12 @@
     "build": "tsc -p tsconfig.lib.json",
     "check-types": "tsc -b --noEmit"
   },
-  "peerDependencies": {},
-  "dependencies": {},
-  "typings": "./src/index.d.ts"
+  "peerDependencies": {
+    "payload": "catalog:payload",
+    "ts-essentials": "^10.0.2"
+  },
+  "devDependencies": {
+    "payload": "catalog:payload",
+    "ts-essentials": "^10.0.2"
+  }
 }
