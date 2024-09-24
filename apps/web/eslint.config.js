@@ -6,7 +6,7 @@ const config = eslintConfig({
   projectRoot: getProjectRoot(import.meta.url),
 }).append({
   name: 'peaks/web/disables/import-map',
-  ignores: ['src/app/(payload)/admin/importMap.js'],
+  ignores: [`src/app/(payload)/admin/importMap.{js,d.ts}`],
 })
 
 export default config

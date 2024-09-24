@@ -73,6 +73,10 @@
   "namedInputs": {
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
     "default": ["sharedGlobals"],
+    "graphqlQueries": [
+      "{workspaceRoot}/packages/data-models/**/.graphql",
+      "{workspaceRoot}/packages/data-access/**/.graphql"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/*.graphql",
@@ -139,7 +143,6 @@
     },
     "build": {
       "cache": true,
-      "outputs": ["{projectRoot}/dist"],
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },

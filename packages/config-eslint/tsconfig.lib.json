@@ -1,14 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "../../dist/eslint-config/.tsbuildinfo",
     "types": ["node"],
     "allowJs": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "../../dist/out-tsc",
-    "removeComments": true
+    "outDir": "../../dist/out-tsc"
   },
   "include": ["./src/**/*.ts", "./src/**/*.js"],
   "exclude": ["vite.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]

@@ -8,7 +8,7 @@
       "node",
       "vitest"
     ],
-    "outDir": "./dist/out-tsc"
+    "outDir": "../../dist/out-tsc"
   },
   "include": [
     "vite.config.ts",

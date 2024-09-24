@@ -1,1 +1,1 @@
-export * from './lib/data-access'
+export type { LocalApiClient } from './lib/api-client/local-api-client'

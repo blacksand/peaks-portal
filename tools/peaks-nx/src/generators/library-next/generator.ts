@@ -52,22 +52,18 @@ function updatePackageJson(tree: Tree, options: NormalizedSchema) {
 
   updateJson(tree, packageJson, (incomingJson: Record<string, unknown>) => {
     Object.assign(incomingJson, {
-      name: options.importPath,
       type: 'module',
       private: true,
-      sideEffects: false,
+      sideEffects: ['./src/**/*.css'],
       version: '0.0.1',
 
       exports: {
-        '.': {
-          import: './dist/index.js',
-          types: './src/index.ts',
-        },
+        '.': './src/index.ts',
       },
 
       scripts: {
-        'build': 'tsc -p tsconfig.lib.json',
-        'check-types': 'tsc -b --noEmit',
+        // 'build': 'tsc -p tsconfig.lib.json',
+        'check-types': 'tsc -p tsconfig.lib.json --noEmit',
       },
 
       dependencies: {},
@@ -100,21 +96,21 @@ function updateTsConfig(tree: Tree, options: NormalizedSchema) {
     }
   })
 
-  updateJson(tree, `${options.projectRoot}/tsconfig.lib.json`, (json: TsConfigJson) => {
-    const {
-      compilerOptions: { module, ...compilerOptions },
-    } = json
-
-    return {
-      ...json,
-      compilerOptions: {
-        ...compilerOptions,
-        noEmit: false,
-        outDir: 'dist',
-        rootDir: 'src',
-      },
-    }
-  })
+  // updateJson(tree, `${options.projectRoot}/tsconfig.lib.json`, (json: TsConfigJson) => {
+  //   const {
+  //     compilerOptions: { module, ...compilerOptions },
+  //   } = json
+  //
+  //   return {
+  //     ...json,
+  //     compilerOptions: {
+  //       ...compilerOptions,
+  //       noEmit: false,
+  //       outDir: 'dist',
+  //       rootDir: 'src',
+  //     },
+  //   }
+  // })
 }
 
 function updateESLintConfig(tree: Tree, options: NormalizedSchema) {

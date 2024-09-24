@@ -3,6 +3,8 @@
   "compilerOptions": {
     "incremental": true,
     "jsx": "preserve",
+    "module": "nodenext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowJs": true,
     "strict": true,
@@ -21,6 +23,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
+    "**/*.mjs",
     "**/*.jsx",
     "../../apps/web/.next/types/**/*.ts",
     "../../dist/apps/web/.next/types/**/*.ts",

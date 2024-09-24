@@ -5,5 +5,61 @@
   "projectType": "application",
   "tags": ["type:app", "scope:web"],
   "// targets": "to see all targets run: nx show project web --web",
-  "targets": {}
+  "targets": {
+    "dev": {
+      "dependsOn": ["^build"]
+    },
+    "generate-schema": {
+      "cache": true,
+      "inputs": ["^production"],
+      "outputs": ["{workspaceRoot}/packages/data-models/cms-schema.graphql"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "env": {
+          "PAYLOAD_CONFIG_PATH": "./src/payload.config.ts"
+        },
+        "commands": ["payload-graphql generate:schema"]
+      }
+    },
+    "generate-types": {
+      "cache": true,
+      "inputs": ["^production"],
+      "outputs": ["{workspaceRoot}/packages/data-models/src/lib/cms-types/payload-types.ts"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "env": {
+          "PAYLOAD_CONFIG_PATH": "./src/payload.config.ts"
+        },
+        "commands": ["payload generate:types"]
+      }
+    },
+    "generate-import-map": {
+      "cache": true,
+      "inputs": ["production", "^production"],
+      "outputs": ["{projectRoot}/src/app/(payload)/admin/importMap.js"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "env": {
+          "PAYLOAD_CONFIG_PATH": "./src/payload.config.ts"
+        },
+        "commands": ["payload generate:importmap"]
+      }
+    },
+    "generate-queries": {
+      "cache": true,
+      "inputs": ["graphqlQueries"],
+      "outputs": [
+        "{workspaceRoot}/packages/data-access/src/lib/types",
+        "{workspaceRoot}/packages/data-access/src/lib/queries"
+      ],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}",
+        "commands": ["graphql-codegen --config ./tools/codegen/codegen-queries.ts --watch"]
+      }
+    }
+  }
 }

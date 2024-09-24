@@ -2,7 +2,6 @@
   "name": "@peaks/config-eslint",
   "type": "module",
   "version": "0.0.1",
-  "typings": "./src/index.d.ts",
   "private": true,
   "exports": {
     ".": {
@@ -13,6 +12,6 @@
     }
   },
   "scripts": {
-    "check-types": "tsc -b --noEmit"
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
   }
 }

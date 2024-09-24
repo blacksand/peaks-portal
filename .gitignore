@@ -45,6 +45,8 @@ Thumbs.db
 .next
 out
 
+.env.local
+.env.*.local
 
 storybook-static
 

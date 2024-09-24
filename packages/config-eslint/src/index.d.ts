@@ -11,7 +11,7 @@ export interface ExtraOptions {
 
 export function eslintConfig(inputOptions?: OptionsConfig & ExtraOptions): FlatConfigComposer
 
-export { type OptionsConfig } from '@antfu/eslint-config'
+export type { OptionsConfig } from '@antfu/eslint-config'
 export function getTsconfigPath(projectRoot: string | undefined): string
 
 export function getProjectRoot(fileURL: string | undefined): string

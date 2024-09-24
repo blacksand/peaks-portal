@@ -5,17 +5,12 @@
   "private": true,
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "import": "./dist/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.lib.json",
-    "check-types": "tsc -b --noEmit"
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
-    "@payloadcms/richtext-lexical": "catalog:payload",
     "@peaks/data-models": "workspace:^",
     "payload": "catalog:payload",
     "remeda": "^2.14.0",

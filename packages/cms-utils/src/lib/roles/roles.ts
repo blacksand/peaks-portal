@@ -1,13 +1,13 @@
 import type { User } from 'payload'
 
-import { adminRoleNames } from './app-roles'
-import type { Role } from './types'
+import { ADMIN_ROLE_NAMES } from './app-roles'
+import type { RoleName } from './types'
 
 export function isAdmin(user: User) {
-  return isUserHasRole(user, ...adminRoleNames)
+  return isUserHasRole(user, ...ADMIN_ROLE_NAMES)
 }
 
-export function isUserHasRole(user: User, ...roles: Role[]) {
+export function isUserHasRole(user: User, ...roles: RoleName[]) {
   if (!user?.id || !Array.isArray(user.roles)) {
     return false
   }

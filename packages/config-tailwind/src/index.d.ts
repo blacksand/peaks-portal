@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
 
-declare const config: Omit<Config, 'content'>
+declare const preset: Config
 
-export default config
+export default preset

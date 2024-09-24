@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
     "types": [
       "node",
       "@nx/react/typings/cssmodule.d.ts",
@@ -9,8 +8,7 @@
       "next",
       "@nx/next/typings/image.d.ts"
     ],
-    "noEmit": false,
-    "outDir": "dist"
+    "outDir": "../../dist/out-tsc"
   },
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

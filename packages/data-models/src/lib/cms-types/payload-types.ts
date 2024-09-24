@@ -11,17 +11,10 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
-    cities: City;
-    districts: District;
-    companies: Company;
-    'cooperation-modes': CooperationMode;
-    'station-states': StationState;
-    'station-types': StationType;
-    stations: Station;
-    'station-mutations': StationMutation;
     users: User;
+    categories: Category;
     media: Media;
-    'station-attachments': StationAttachment;
+    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -36,45 +29,21 @@ export interface Config {
 }
 export interface UserAuthOperations {
   forgotPassword: {
-    username: string;
+    email: string;
+    password: string;
   };
   login: {
+    email: string;
     password: string;
-    username: string;
   };
   registerFirstUser: {
+    email: string;
     password: string;
-    username: string;
   };
   unlock: {
-    username: string;
+    email: string;
+    password: string;
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "cities".
- */
-export interface City {
-  id: string;
-  code: string;
-  name: string;
-  /**
-   * @minItems 2
-   * @maxItems 2
-   */
-  position: [number, number];
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -82,25 +51,15 @@ export interface City {
  */
 export interface User {
   id: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
+  username: string;
   name?: string | null;
-  roles: ('admin' | 'user')[];
+  roles: ('admin' | 'anonymous' | 'contributor' | 'editor' | 'moderator' | 'user')[];
   updatedAt: string;
   createdAt: string;
   enableAPIKey?: boolean | null;
   apiKey?: string | null;
   apiKeyIndex?: string | null;
-  email?: string | null;
-  username: string;
+  email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
   salt?: string | null;
@@ -111,168 +70,12 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "districts".
+ * via the `definition` "categories".
  */
-export interface District {
+export interface Category {
   id: string;
-  code: string;
-  name: string;
-  /**
-   * @minItems 2
-   * @maxItems 2
-   */
-  position: [number, number];
-  city: string | City;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "companies".
- */
-export interface Company {
-  id: string;
-  name: string;
-  contact?: string | null;
-  cooperationMode?: (string | null) | CooperationMode;
-  cities?: (string | City)[] | null;
-  districts?: (string | District)[] | null;
-  citiesNames?: string[] | null;
-  detail?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "cooperation-modes".
- */
-export interface CooperationMode {
-  id: string;
-  code: string;
-  name: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "station-states".
- */
-export interface StationState {
-  id: string;
-  code: string;
-  name: string;
-  progress: number;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "station-types".
- */
-export interface StationType {
-  id: string;
-  code: string;
-  name: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "stations".
- */
-export interface Station {
-  id: string;
-  name: string;
-  type: string | StationType;
-  state: string | StationState;
-  runningStatus: 'running' | 'closed';
-  corporationNature?: string | null;
-  industry?: string | null;
-  company: string | Company;
-  cooperationMode: string | CooperationMode;
-  city: string | City;
-  cityName?: string | null;
-  district: string | District;
-  address?: string | null;
-  /**
-   * @minItems 2
-   * @maxItems 2
-   */
-  position: [number, number];
-  annualFuel?: number | null;
-  followUp?: (string | User)[] | null;
-  attachments?: (string | StationAttachment)[] | null;
-  dimensions?:
-    | {
-        title: string;
-        value?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  label: string;
+  slug?: string | null;
   description?: {
     root: {
       type: string;
@@ -288,107 +91,15 @@ export interface Station {
     };
     [k: string]: unknown;
   } | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "station-attachments".
- */
-export interface StationAttachment {
-  id: string;
-  caption?: string | null;
-  station?: (string | null) | Station;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  blurhash?: string | null;
-  blurhashSizes?: {
-    thumbnail?: {
-      blurhash?: string | null;
-    };
-    mobile?: {
-      blurhash?: string | null;
-    };
-    desktop?: {
-      blurhash?: string | null;
-    };
-  };
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    mobile?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    desktop?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "station-mutations".
- */
-export interface StationMutation {
-  id: string;
-  station: string | Station;
-  fromState?: (string | null) | StationState;
-  toState?: (string | null) | StationState;
-  memo?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
+  parent?: (string | null) | Category;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -399,28 +110,6 @@ export interface StationMutation {
 export interface Media {
   id: string;
   caption?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  createdByUser?: string | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedByUser?: string | null;
-  blurhash?: string | null;
-  blurhashSizes?: {
-    thumbnail?: {
-      blurhash?: string | null;
-    };
-    mobile?: {
-      blurhash?: string | null;
-    };
-    desktop?: {
-      blurhash?: string | null;
-    };
-  };
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -458,6 +147,33 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: string;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: string | User;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: string | Category;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

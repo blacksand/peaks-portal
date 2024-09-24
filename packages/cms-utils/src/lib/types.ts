@@ -23,8 +23,6 @@ import type {
   UploadField,
 } from 'payload'
 
-import type { RichHtmlField } from './fields/rich-html'
-
 export interface Types {
   code: [CodeField]
   array: [ArrayField]
@@ -40,7 +38,6 @@ export interface Types {
   point: [PointField]
   radio: [RadioField]
   relationship: [RelationshipField]
-  richHtml: [RichHtmlField]
   richText: [RichTextField]
   row: [RowField]
   select: [SelectField]

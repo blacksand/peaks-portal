@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "esnext",
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,

@@ -65,33 +65,29 @@ function updateProject(tree: Tree, options: NormalizedSchema) {
 }
 
 function updatePackageJson(tree: Tree, options: NormalizedSchema) {
-  if (options.bundler !== 'tsc') {
+  if (options.bundler !== 'none') {
     return
   }
 
   const packageJson = `${options.projectRoot}/package.json`
   if (!tree.exists(packageJson)) {
-    return
+    tree.write(packageJson, '{}')
   }
 
   updateJson(tree, packageJson, (incomingJson: Record<string, unknown>) => {
     Object.assign(incomingJson, {
       name: options.importPath,
       type: 'module',
+      private: true,
       sideEffects: false,
+      version: '0.0.1',
 
       exports: {
-        '.': {
-          import: './dist/index.js',
-          types: './src/index.ts',
-        },
+        '.': './src/index.ts',
       },
-      main: './dist/index.js',
-      types: './dist/index.d.ts',
 
       scripts: {
-        'build': 'tsc -p tsconfig.lib.json',
-        'check-types': 'tsc -b --noEmit',
+        'check-types': 'tsc -p tsconfig.lib.json --noEmit',
       },
 
       dependencies: {},
@@ -118,18 +114,18 @@ function updateTsConfig(tree: Tree, options: NormalizedSchema) {
     }
   })
 
-  updateJson(tree, `${options.projectRoot}/tsconfig.lib.json`, (json: TsConfigJson) => {
-    const { compilerOptions: { module, ...compilerOptions } } = json
-    return {
-      ...json,
-      compilerOptions: {
-        ...compilerOptions,
-        noEmit: false,
-        outDir: 'dist',
-        rootDir: 'src',
-      },
-    }
-  })
+  // updateJson(tree, `${options.projectRoot}/tsconfig.lib.json`, (json: TsConfigJson) => {
+  //   const { compilerOptions: { module, ...compilerOptions } } = json
+  //   return {
+  //     ...json,
+  //     compilerOptions: {
+  //       ...compilerOptions,
+  //       noEmit: false,
+  //       outDir: 'dist',
+  //       rootDir: 'src',
+  //     },
+  //   }
+  // })
 }
 
 function updateESLintConfig(tree: Tree, options: NormalizedSchema) {
@@ -137,7 +133,9 @@ function updateESLintConfig(tree: Tree, options: NormalizedSchema) {
 
   if (tree.exists(eslintConfig)) {
     tree.delete(eslintConfig)
-    tree.write(eslintConfig, `
+    tree.write(
+      eslintConfig,
+      `
 import { eslintConfig, getProjectRoot } from '@peaks/config-eslint'
 
 const config = eslintConfig({
@@ -147,7 +145,8 @@ const config = eslintConfig({
 })
 
 export default config
-`)
+`,
+    )
   }
 }
 

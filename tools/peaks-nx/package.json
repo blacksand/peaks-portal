@@ -7,6 +7,9 @@
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
   "generators": "./generators.json",
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
   "dependencies": {
     "@nx/devkit": "19.8.0"
   }

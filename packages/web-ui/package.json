@@ -3,16 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "sideEffects": false,
+  "sideEffects": ["./src/**/*.css"],
   "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "import": "./dist/index.js"
-    }
+    ".": "./src/index.ts",
+    "./admin": "./src/lib/admin/exports.ts",
+    "./layout": "./src/lib/layout/exports.ts"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.lib.json",
-    "check-types": "tsc -b --noEmit"
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
     "next": "catalog:next"

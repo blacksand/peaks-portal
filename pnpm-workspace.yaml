@@ -1,6 +1,7 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+  - 'tools/*'
 catalogs:
   next:
     '@next/bundle-analyzer': 15.0.0-canary.160

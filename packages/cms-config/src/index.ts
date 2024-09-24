@@ -1,1 +1,1 @@
-export * from './lib/cms-config'
+export { default } from './lib/payload-config'

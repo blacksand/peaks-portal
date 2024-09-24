@@ -73,7 +73,7 @@ export function eslintConfig(inputOptions = {}) {
     typeof tailwindcss === 'string'
       ? tailwindcss
       : hasReact || tailwindcss
-        ? `${workspacePath}/packages/config-tailwind/src/index.js`
+        ? '@peaks/config-tailwind/web'
         : undefined
 
   const options = {

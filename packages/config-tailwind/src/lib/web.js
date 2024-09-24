@@ -9,9 +9,9 @@ import animate from 'tailwindcss-animate'
 // import fluid from '@peaks/tailwindcss-plugin-fluid'
 
 /**
- * @type {import('tailwindcss').Config}
+ * @type {Partial<import('tailwindcss').Config>}
  */
-export default {
+const preset = {
   darkMode: ['class'],
   plugins: [
     animate,
@@ -128,3 +128,5 @@ export default {
     },
   },
 }
+
+export default preset

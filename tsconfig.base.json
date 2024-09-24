@@ -19,7 +19,7 @@
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "declaration": true,
+    "declaration": false,
     "importHelpers": true,
     "noEmit": true,
     "sourceMap": true,
