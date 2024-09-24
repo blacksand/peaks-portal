@@ -3,7 +3,7 @@
   "compilerOptions": {
     "incremental": true,
     "jsx": "preserve",
-    "module": "nodenext",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowJs": true,
