@@ -11,11 +11,5 @@
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
-  },
-  "peerDependencies": {
-    "next": "catalog:next"
-  },
-  "devDependencies": {
-    "next": "catalog:next"
   }
 }

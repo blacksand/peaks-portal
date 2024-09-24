@@ -9,15 +9,15 @@
   "main": "server.js",
   "scripts": {},
   "dependencies": {
-    "@payloadcms/next": "catalog:payload",
+    "@payloadcms/next": "3.0.0-beta.108",
     "@peaks/cms-config": "workspace:^",
     "@peaks/config-tailwind": "workspace:^",
     "@peaks/data-models": "workspace:^",
     "@peaks/web-ui": "workspace:^",
-    "next": "catalog:next"
+    "next": "15.0.0-canary.160"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "catalog:next",
+    "@next/bundle-analyzer": "15.0.0-canary.160",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",

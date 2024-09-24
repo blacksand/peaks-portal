@@ -12,10 +12,6 @@
   },
   "peerDependencies": {
     "@peaks/common-utils": "workspace:^",
-    "@peaks/data-models": "workspace:^",
-    "next": "catalog:next",
-    "payload": "catalog:payload",
-    "remeda": "^2.14.0",
-    "ts-essentials": "^10.0.2"
+    "@peaks/data-models": "workspace:^"
   }
 }

@@ -13,20 +13,18 @@
   },
   "peerDependencies": {
     "@payload-enchants/cached-local-api": "^1.2.2",
-    "@payloadcms/db-mongodb": "catalog:payload",
-    "@payloadcms/next": "catalog:payload",
-    "@payloadcms/plugin-nested-docs": "catalog:payload",
-    "@payloadcms/richtext-lexical": "catalog:payload",
+    "@payloadcms/db-mongodb": "3.0.0-beta.108",
+    "@payloadcms/next": "3.0.0-beta.108",
+    "@payloadcms/plugin-nested-docs": "3.0.0-beta.108",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.108",
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
     "@peaks/data-models": "workspace:^",
-    "next": "catalog:next",
-    "payload": "catalog:payload",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@payloadcms/next": "catalog:payload",
+    "@payloadcms/next": "3.0.0-beta.108",
     "@peaks/data-access": "workspace:^"
   }
 }
