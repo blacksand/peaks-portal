@@ -1,0 +1,21 @@
+{
+  "name": "@peaks/data-access",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "@peaks/common-utils": "workspace:^",
+    "@peaks/data-models": "workspace:^",
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "remeda": "^2.14.0",
+    "ts-essentials": "^10.0.2"
+  }
+}

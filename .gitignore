@@ -45,5 +45,12 @@ Thumbs.db
 .next
 out
 
+.env.local
+.env.*.local
 
 storybook-static
+
+.vite
+vite.config.ts.timestamp-*
+vitest.config.ts.timestamp-*
+eslint.config.js\?*

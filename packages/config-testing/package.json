@@ -1,0 +1,21 @@
+{
+  "name": "@peaks/config-testing",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "sideEffects": false,
+  "exports": {
+    "./node": {
+      "types": "./src/node/config.d.ts",
+      "import": "./src/node/config.js"
+    },
+    "./browser": {
+      "types": "./src/browser/config.d.ts",
+      "import": "./src/browser/config.js"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  }
+}

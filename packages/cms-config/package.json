@@ -1,0 +1,32 @@
+{
+  "name": "@peaks/cms-config",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./utilities": "./src/lib/utilities/exports.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "@payload-enchants/cached-local-api": "^1.2.2",
+    "@payloadcms/db-mongodb": "catalog:payload",
+    "@payloadcms/next": "catalog:payload",
+    "@payloadcms/plugin-nested-docs": "catalog:payload",
+    "@payloadcms/richtext-lexical": "catalog:payload",
+    "@peaks/cms-utils": "workspace:^",
+    "@peaks/common-utils": "workspace:^",
+    "@peaks/data-access": "workspace:^",
+    "@peaks/data-models": "workspace:^",
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@payloadcms/next": "catalog:payload",
+    "@peaks/data-access": "workspace:^"
+  }
+}

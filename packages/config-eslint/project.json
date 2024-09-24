@@ -1,0 +1,8 @@
+{
+  "name": "eslint-config",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/config-eslint/src",
+  "projectType": "library",
+  "tags": ["type:util", "scope:shared"],
+  "targets": {}
+}

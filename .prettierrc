@@ -1,0 +1,15 @@
+{
+  "arrowParens": "always",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "jsxSingleQuote": false,
+  "editorconfig": true,
+  "printWidth": 100,
+  "plugins": [
+    "prettier-plugin-brace-style",
+    "prettier-plugin-css-order"
+  ],
+  "braceStyle": "stroustrup",
+  "cssDeclarationSorterKeepOverrides": false
+}

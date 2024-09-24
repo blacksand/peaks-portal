@@ -1,0 +1,17 @@
+{
+  "name": "@peaks/config-eslint",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./src/index.d.ts",
+        "import": "./src/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  }
+}

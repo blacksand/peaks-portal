@@ -1,0 +1,7 @@
+commit_msg=$(git log -1 --pretty=%B)
+if [[ $commit_msg == "WIP:"* ]]; then
+  echo "WIP提交，跳过Husky检查"
+  exit 0
+fi
+
+lint-staged --relative

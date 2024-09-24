@@ -1,0 +1,22 @@
+{
+  "name": "@peaks/data-models",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./payload-types": "./src/payload-types.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "payload": "catalog:payload",
+    "ts-essentials": "^10.0.2"
+  },
+  "devDependencies": {
+    "payload": "catalog:payload",
+    "ts-essentials": "^10.0.2"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@peaks/web-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": ["./src/**/*.css"],
+  "exports": {
+    ".": "./src/index.ts",
+    "./admin": "./src/lib/admin/exports.ts",
+    "./layout": "./src/lib/layout/exports.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "next": "catalog:next"
+  },
+  "devDependencies": {
+    "next": "catalog:next"
+  }
+}
