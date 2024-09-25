@@ -1,5 +1,6 @@
 import { GLOB_JSX, GLOB_TS, GLOB_TSX } from '@antfu/eslint-config'
 import a11yPlugin from 'eslint-plugin-jsx-a11y'
+import reactCompilerPlugin from 'eslint-plugin-react-compiler'
 
 /** @type {import('eslint').Linter.Config[]} */
 const typeAwareRules = [
@@ -59,7 +60,12 @@ export function react({ a11y, typeAware }) {
     {
       name: 'peaks/react/rules',
       files: [GLOB_TS, GLOB_TSX],
+      plugins: {
+        'react-compiler': reactCompilerPlugin,
+      },
       rules: {
+        'react-compiler/react-compiler': 'warn',
+
         'react/no-missing-component-display-name': 'error',
 
         // 添加对 react-use 包的支持
