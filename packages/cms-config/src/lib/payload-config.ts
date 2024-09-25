@@ -1,4 +1,4 @@
-// import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { s3Storage } from '@payloadcms/storage-s3'
@@ -32,12 +32,9 @@ const config = buildConfig({
   secret: process.env.PAYLOAD_SECRET,
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || undefined,
 
-  // db: mongooseAdapter({ url: process.env.DATABASE_URI }),
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI || '',
-    },
-  }),
+  db: process.env.DATABASE_URI.startsWith('mongodb:')
+    ? mongooseAdapter({ url: process.env.DATABASE_URI })
+    : postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI } }),
 
   // async onInit(payload) {
   //   payload.logger.info('Payload initialized')
@@ -67,7 +64,10 @@ const config = buildConfig({
   },
   typescript: {
     declare: false,
-    outputFile: path.resolve(workspacePath, 'packages/data-models/src/lib/cms-types/payload-types.ts'),
+    outputFile: path.resolve(
+      workspacePath,
+      'packages/data-models/src/lib/cms-types/payload-types.ts',
+    ),
   },
 
   admin: {
@@ -131,13 +131,11 @@ const config = buildConfig({
     // }),
     cachedPayloadPlugin,
     nestedDocsPlugin({
-      collections: [
-        categories.slug,
-      ],
-      // parentFieldSlug: 'slug',
-      // breadcrumbsFieldSlug: 'slug',
-      // generateLabel: (_, doc) => doc?.label as string,
-      generateURL: (docs) => docs.map(({ slug }) => slug as string).join('/'),
+      breadcrumbsFieldSlug: 'breadcrumbs',
+      collections: [categories.slug],
+      generateLabel: (_, doc) => doc?.label as string,
+      generateURL: (docs) => `/categories/${docs.map(({ slug }) => slug as string).join('/')}`,
+      parentFieldSlug: 'parent',
     }),
     s3Storage({
       enabled: !!process.env.PEAKS_OSS_ENDPOINT,
@@ -163,7 +161,7 @@ const config = buildConfig({
         },
 
         endpoint: process.env.PEAKS_OSS_ENDPOINT,
-        forcePathStyle: false,
+        forcePathStyle: process.env.PEAKS_OSS_FORCE_PATH_STYLE === 'true',
         region: process.env.PEAKS_OSS_REGION,
       },
     }),

@@ -13,6 +13,7 @@
   },
   "peerDependencies": {
     "@payload-enchants/cached-local-api": "^1.2.2",
+    "@payloadcms/db-mongodb": "3.0.0-beta.108",
     "@payloadcms/db-postgres": "3.0.0-beta.108",
     "@payloadcms/next": "3.0.0-beta.108",
     "@payloadcms/plugin-nested-docs": "3.0.0-beta.108",
@@ -21,6 +22,7 @@
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
-    "@peaks/data-models": "workspace:^"
+    "@peaks/data-models": "workspace:^",
+    "next": "15.0.0-canary.160"
   }
 }
