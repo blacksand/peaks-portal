@@ -1,3 +1,4 @@
+import { createBreadcrumbsField, createParentField } from '@payloadcms/plugin-nested-docs'
 import type { CollectionConfig } from 'payload'
 
 import { slugs } from '@peaks/data-models'
@@ -36,19 +37,36 @@ export const categories: CollectionConfig = {
       }),
     ]),
 
-    withRow([
-      // colorField({
-      //   name: 'color',
-      //   label: '主题颜色',
-      //   admin: { width: '50%' },
-      // }),
-      //
-      // iconField({
-      //   name: 'icon',
-      //   label: '主题图标',
-      //   admin: { width: '50%' },
-      // }),
-    ]),
+    createParentField(slugs.categories, {
+      name: 'parent',
+      label: '上级栏目',
+      admin: {
+        position: 'sidebar',
+      },
+    }),
+
+    createBreadcrumbsField(slugs.categories, {
+      name: 'breadcrumbs',
+      label: '栏目层级',
+      labels: createLabels('层级'),
+      admin: {
+        position: 'sidebar',
+      },
+    }),
+
+    // withRow([
+    //   colorField({
+    //     name: 'color',
+    //     label: '主题颜色',
+    //     admin: { width: '50%' },
+    //   }),
+    //
+    //   iconField({
+    //     name: 'icon',
+    //     label: '主题图标',
+    //     admin: { width: '50%' },
+    //   }),
+    // ]),
 
     field.richText({
       name: 'description',
