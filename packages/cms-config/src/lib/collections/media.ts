@@ -26,25 +26,25 @@ export const media: CollectionConfig = {
 
   upload: {
     adminThumbnail: 'thumbnail',
+    crop: false,
     imageSizes: [
       {
         name: 'thumbnail',
-        fit: 'cover',
+        fit: 'inside',
         height: 300,
         width: 400,
-        withoutEnlargement: true,
       },
       {
         name: 'mobile',
+        fit: 'inside',
         height: undefined,
         width: 1024,
-        withoutEnlargement: true,
       },
       {
         name: 'desktop',
+        fit: 'inside',
         height: undefined,
         width: 1560,
-        withoutEnlargement: true,
       },
     ],
     staticDir: `./upload/${slugs.media}`,

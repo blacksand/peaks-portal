@@ -1,5 +1,7 @@
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
+// import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
+import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'node:path'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
@@ -16,7 +18,6 @@ import { livePreviewConfig } from './config/live-preview-config'
 // import { auditFieldPlugin } from '@peaks/payload-plugin-audit'
 // import { blurhashPlugin } from '@peaks/payload-plugin-blurhash'
 // import { stringToArray } from '@peaks/utils-common'
-// import { s3Storage } from '@payloadcms/storage-s3'
 
 import { workspacePath } from '../workspace-path'
 
@@ -31,7 +32,12 @@ const config = buildConfig({
   secret: process.env.PAYLOAD_SECRET,
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || undefined,
 
-  db: mongooseAdapter({ url: process.env.DATABASE_URI }),
+  // db: mongooseAdapter({ url: process.env.DATABASE_URI }),
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI || '',
+    },
+  }),
 
   // async onInit(payload) {
   //   payload.logger.info('Payload initialized')
@@ -133,34 +139,34 @@ const config = buildConfig({
       // generateLabel: (_, doc) => doc?.label as string,
       generateURL: (docs) => docs.map(({ slug }) => slug as string).join('/'),
     }),
-    // s3Storage({
-    //   enabled: !!process.env.PEAKS_OSS_ENDPOINT,
-    //
-    //   collections: {
-    //     [media.slug]: {
-    //       disablePayloadAccessControl: true,
-    //       generateFileURL,
-    //       prefix: `peaks-fuel/${media.slug}`,
-    //     },
-    //     [stationAttachments.slug]: {
-    //       disablePayloadAccessControl: true,
-    //       generateFileURL,
-    //       prefix: `peaks-fuel/${stationAttachments.slug}`,
-    //     },
-    //   },
-    //
-    //   bucket: process.env.PEAKS_OSS_BUCKET!,
-    //   config: {
-    //     credentials: {
-    //       accessKeyId: process.env.PEAKS_OSS_ACCESS_KEY_ID!,
-    //       secretAccessKey: process.env.PEAKS_OSS_ACCESS_KEY!,
-    //     },
-    //
-    //     endpoint: process.env.PEAKS_OSS_ENDPOINT,
-    //     forcePathStyle: false,
-    //     region: process.env.PEAKS_OSS_REGION,
-    //   },
-    // }),
+    s3Storage({
+      enabled: !!process.env.PEAKS_OSS_ENDPOINT,
+
+      collections: {
+        [media.slug]: {
+          // disablePayloadAccessControl: true,
+          // generateFileURL,
+          prefix: media.slug,
+        },
+        // [stationAttachments.slug]: {
+        //   disablePayloadAccessControl: true,
+        //   generateFileURL,
+        //   prefix: stationAttachments.slug,
+        // },
+      },
+
+      bucket: process.env.PEAKS_OSS_BUCKET!,
+      config: {
+        credentials: {
+          accessKeyId: process.env.PEAKS_OSS_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.PEAKS_OSS_ACCESS_KEY!,
+        },
+
+        endpoint: process.env.PEAKS_OSS_ENDPOINT,
+        forcePathStyle: false,
+        region: process.env.PEAKS_OSS_REGION,
+      },
+    }),
   ],
   sharp,
   upload: {
