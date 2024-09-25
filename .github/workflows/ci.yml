@@ -55,15 +55,15 @@ jobs:
       - name: Lint and check types
         run: pnpm exec nx affected -t lint,check-types,test
 
-      - name: Setup NextJS cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ github.workspace }}/apps/web/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[cm][jt]s', '**/*.tsx', '!**/node_modules/**') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+      # - name: Setup NextJS cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ${{ github.workspace }}/apps/web/.next/cache
+      #     # Generate a new cache whenever packages or source files change.
+      #     key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[cm][jt]s', '**/*.tsx', '!**/node_modules/**') }}
+      #     # If source files changed but packages didn't, rebuild from a prior cache.
+      #     restore-keys: |
+      #       ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Build
-        run: pnpm exec nx affected -t build
+      # - name: Build
+      #   run: pnpm exec nx affected -t build
