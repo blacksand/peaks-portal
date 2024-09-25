@@ -26,11 +26,10 @@ export const media: CollectionConfig = {
 
   upload: {
     adminThumbnail: 'thumbnail',
-    crop: false,
     imageSizes: [
       {
         name: 'thumbnail',
-        fit: 'inside',
+        fit: 'cover',
         height: 300,
         width: 400,
       },
@@ -51,6 +50,15 @@ export const media: CollectionConfig = {
   },
 
   fields: [
+    field.text({
+      name: 'prefix',
+      label: 'prefix',
+      admin: {
+        disabled: true,
+      },
+      defaultValue: slugs.media,
+    }),
+
     field.text({
       name: 'caption',
       label: '图片标题',
