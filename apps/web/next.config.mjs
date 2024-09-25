@@ -62,7 +62,6 @@ const nextConfig = {
             '@peaks/common-utils',
             '@payloadcms/next',
             '@payloadcms/ui',
-            'remeda',
           ]
         : [],
     reactCompiler: true,
