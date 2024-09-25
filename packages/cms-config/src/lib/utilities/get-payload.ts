@@ -10,6 +10,6 @@ export async function getPayload() {
 }
 
 export async function getPayloadWithCache() {
-  const payload = await getPayloadHMR({ config: configPromise })
+  const payload = await getPayload()
   return getCachedPayload(payload)
 }
