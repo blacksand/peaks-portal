@@ -20,8 +20,7 @@
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
-    "@peaks/data-models": "workspace:^",
-    "sharp": "^0.33.5"
+    "@peaks/data-models": "workspace:^"
   },
   "devDependencies": {
     "@payloadcms/next": "3.0.0-beta.108",
