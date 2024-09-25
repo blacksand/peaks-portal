@@ -20,7 +20,7 @@
     "react": "19.0.0-rc-5dcb0097-20240918",
     "react-dom": "19.0.0-rc-5dcb0097-20240918",
     "remeda": "^2.14.0",
-    "sharp": "^0.33.5",
+    "sharp": "0.33.5",
     "ts-essentials": "^10.0.2",
     "tslib": "^2.7.0"
   },
@@ -107,11 +107,11 @@
       ]
     },
     "overrides": {
-      "@nx/vite>vitest": "$vitest",
       "@testing-library/react>@types/react": "$@types/react",
       "@testing-library/react>@types/react-dom": "$@types/react-dom",
       "@types/react": "npm:types-react@19.0.0-rc.1",
       "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+      "drizzle-orm>@types/react": "$@types/react",
       "eslint": "$eslint",
       "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks",
       "react": "$react",
@@ -123,9 +123,7 @@
         "react",
         "react-dom",
         "@types/react",
-        "@types/react-dom",
-        "@testing-library/react>@types/react",
-        "@testing-library/react>@types/react-dom"
+        "@types/react-dom"
       ]
     }
   },
