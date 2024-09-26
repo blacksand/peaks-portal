@@ -23,27 +23,47 @@ const nextConfig = {
     unoptimized: true,
   },
 
+  serverExternalPackages: [
+    '@payload-enchants/cached-local-api',
+    '@payloadcms/db-mongodb',
+    '@payloadcms/db-postgres',
+    '@payloadcms/drizzle',
+    '@payloadcms/graphql',
+    '@payloadcms/plugin-cloud-storage',
+    '@payloadcms/translations',
+    '@payloadcms/plugin-nested-docs',
+    '@payloadcms/storage-s3',
+    'fast-blurhash',
+    'loglevel',
+    'loglevel-plugin-prefix',
+    'payload',
+  ],
+
   experimental: {
-    optimizePackageImports: process.env.NODE_ENV === 'production' ? [
-      '@peaks/cms-config',
-      '@peaks/data-access',
-      '@peaks/data-models',
-      '@peaks/common-ui',
-      '@peaks/web-ui',
-      '@peaks/cms-utils',
-      '@peaks/common-utils',
+    optimizePackageImports: [
+      '@payloadcms/next',
+      '@payloadcms/richtext-lexical',
       '@payloadcms/ui',
       'remeda',
-    ] : [],
+      ...(process.env.NODE_ENV === 'production'
+        ? [
+            '@peaks/cms-config',
+            '@peaks/data-access',
+            '@peaks/data-models',
+            '@peaks/common-ui',
+            '@peaks/web-ui',
+            '@peaks/cms-utils',
+            '@peaks/common-utils',
+          ]
+        : []),
+    ],
+    reactCompiler: true,
     // 启用后会出现需要提供 list key 的警告信息
     // ppr: 'incremental',
     typedRoutes: true,
   },
 }
 
-const plugins = [
-  withNx,
-  withPayload,
-]
+const plugins = [withNx, withPayload]
 
 export default composePlugins(...plugins)(nextConfig)

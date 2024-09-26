@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "next", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
+    "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
     "declaration": true,
     "outDir": "../../dist/out-tsc"
   },

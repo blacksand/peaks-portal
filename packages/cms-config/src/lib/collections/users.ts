@@ -15,8 +15,14 @@ export const users: CollectionConfig = {
   },
 
   auth: {
+    loginWithUsername: {
+      allowEmailLogin: true,
+      requireEmail: false,
+      requireUsername: true,
+    },
     tokenExpiration: 60 * 60 * 24 * 7,
     useAPIKey: true,
+    verify: false,
   },
 
   custom: {

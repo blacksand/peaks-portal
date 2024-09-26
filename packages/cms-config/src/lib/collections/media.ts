@@ -32,25 +32,33 @@ export const media: CollectionConfig = {
         fit: 'cover',
         height: 300,
         width: 400,
-        withoutEnlargement: true,
       },
       {
         name: 'mobile',
+        fit: 'inside',
         height: undefined,
         width: 1024,
-        withoutEnlargement: true,
       },
       {
         name: 'desktop',
+        fit: 'inside',
         height: undefined,
         width: 1560,
-        withoutEnlargement: true,
       },
     ],
     staticDir: `./upload/${slugs.media}`,
   },
 
   fields: [
+    field.text({
+      name: 'prefix',
+      label: 'prefix',
+      admin: {
+        disabled: true,
+      },
+      defaultValue: slugs.media,
+    }),
+
     field.text({
       name: 'caption',
       label: '图片标题',

@@ -11,5 +11,8 @@
   },
   "peerDependencies": {
     "fast-blurhash": "^1.1.4"
+  },
+  "devDependencies": {
+    "shadcn": "^2.0.8"
   }
 }

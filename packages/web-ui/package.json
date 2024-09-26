@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "sideEffects": ["./src/**/*.css"],
+  "sideEffects": [
+    "./src/**/*.css"
+  ],
   "exports": {
     ".": "./src/index.ts",
     "./admin": "./src/lib/admin/exports.ts",
@@ -13,9 +15,6 @@
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
-    "next": "catalog:next"
-  },
-  "devDependencies": {
-    "next": "catalog:next"
+    "next": "15.0.0-canary.160"
   }
 }
