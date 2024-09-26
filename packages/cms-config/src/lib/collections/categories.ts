@@ -2,10 +2,11 @@ import { createBreadcrumbsField, createParentField } from '@payloadcms/plugin-ne
 import type { CollectionConfig } from 'payload'
 
 import { slugs } from '@peaks/data-models'
+
 // import { colorField } from '@peaks-cms/field-color';
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
 // import { iconField } from '@peaks-cms/field-icon';
-// import { slugField } from '@peaks-cms/field-slug';
+import { slugField } from '@peaks/cms-fields/slug'
 
 export const categories: CollectionConfig = {
   slug: slugs.categories,
@@ -29,11 +30,11 @@ export const categories: CollectionConfig = {
         required: true,
       }),
 
-      // slugField({
-      field.text({
+      slugField({
         name: 'slug',
+        label: '网址后缀',
+        fieldToUse: 'label',
         unique: true,
-        // fromField: 'label',
       }),
     ]),
 

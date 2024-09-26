@@ -52,6 +52,7 @@ function updatePackageJson(tree: Tree, options: NormalizedSchema) {
 
   updateJson(tree, packageJson, (incomingJson: Record<string, unknown>) => {
     Object.assign(incomingJson, {
+      name: options.importPath,
       type: 'module',
       private: true,
       sideEffects: ['./src/**/*.css'],

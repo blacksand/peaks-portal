@@ -13,8 +13,5 @@
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
-  },
-  "peerDependencies": {
-    "next": "15.0.0-canary.160"
   }
 }

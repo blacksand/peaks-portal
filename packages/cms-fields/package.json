@@ -1,0 +1,24 @@
+{
+  "name": "@peaks/cms-fields",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": [
+    "./src/**/*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./slug": "./src/lib/slug/exports.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "@payloadcms/ui": "3.0.0-beta.108",
+    "@peaks/cms-utils": "workspace:^",
+    "@peaks/common-utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@peaks/common-utils": "workspace:^"
+  }
+}

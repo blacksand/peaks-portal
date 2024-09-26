@@ -12,13 +12,13 @@
     "@payloadcms/next": "3.0.0-beta.108",
     "@payloadcms/richtext-lexical": "3.0.0-beta.108",
     "@peaks/cms-config": "workspace:^",
-    "@peaks/config-tailwind": "workspace:^",
+    "@peaks/cms-fields": "workspace:^",
     "@peaks/data-models": "workspace:^",
-    "@peaks/web-ui": "workspace:^",
-    "next": "15.0.0-canary.160"
+    "@peaks/web-ui": "workspace:^"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "15.0.0-canary.160",
+    "@peaks/config-tailwind": "workspace:^",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
