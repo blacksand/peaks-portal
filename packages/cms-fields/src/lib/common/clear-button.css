@@ -1,0 +1,30 @@
+.field-type.has-clear {
+  .field-type__wrap {
+    display: flex;
+    gap: calc(var(--base) / 4);
+  }
+
+  .clear-button__wrap {
+    display: flex;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    align-items: center;
+    background-color: var(--theme-input-bg);
+  }
+
+  .clear-button {
+    margin: 8px;
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      background-color: var(--theme-bg);
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
