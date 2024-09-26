@@ -22,7 +22,6 @@
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
-    "@peaks/data-models": "workspace:^",
-    "next": "15.0.0-canary.160"
+    "@peaks/data-models": "workspace:^"
   }
 }
