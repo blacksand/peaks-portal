@@ -273,9 +273,6 @@ importers:
       '@peaks/web-ui':
         specifier: workspace:^
         version: link:../../packages/web-ui
-      next:
-        specifier: 15.0.0-canary.160
-        version: 15.0.0-canary.160(@babel/core@7.25.2)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@0.0.0-experimental-6067d4e-20240924)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(sass@1.79.3)
     devDependencies:
       '@next/bundle-analyzer':
         specifier: 15.0.0-canary.160
@@ -360,7 +357,6 @@ importers:
       '@peaks/cms-utils':
         specifier: workspace:^
         version: link:../cms-utils
-    devDependencies:
       '@peaks/common-utils':
         specifier: workspace:^
         version: link:../common-utils
