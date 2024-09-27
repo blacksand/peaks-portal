@@ -8,8 +8,8 @@
   ],
   "exports": {
     ".": "./src/index.ts",
-    "./admin": "./src/lib/admin/exports.ts",
-    "./layout": "./src/lib/layout/exports.ts"
+    "./admin": "./src/exports/admin.ts",
+    "./layout": "./src/exports/layout.ts"
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"

@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "sideEffects": ["./src/**/*.css"],
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./lexical": "./src/exports/lexical.ts"
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"

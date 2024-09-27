@@ -6,7 +6,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./src/index.ts",
-    "./utilities": "./src/lib/utilities/exports.ts"
+    "./utilities": "./src/exports/utilities.ts"
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
