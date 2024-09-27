@@ -18,9 +18,9 @@ describe('isObject 函数', () => {
     expect(isObject(value)).toBe(false)
   })
 
-  it('如果值是一个数组，应返回 true', () => {
+  it('如果值是一个数组，应返回 false', () => {
     const array = [1, 2, 3]
-    expect(isObject(array)).toBe(true)
+    expect(isObject(array)).toBe(false)
   })
 
   it('如果值是一个函数，应返回 false', () => {

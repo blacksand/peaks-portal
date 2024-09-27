@@ -19,7 +19,7 @@ describe('isObjectAnd', () => {
     )
   })
 
-  it('should return true if the value is an array and predicate is true', () => {
-    expect(isObjectAnd<number[]>([1], (o) => o[0] === 1)).toBe(true)
+  it('should return false if the value is an array', () => {
+    expect(isObjectAnd<number[]>([1], (o) => o[0] === 1)).toBe(false)
   })
 })
