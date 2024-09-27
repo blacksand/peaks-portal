@@ -141,6 +141,13 @@
       "inputs": ["production", "^production"],
       "outputs": ["{workspaceRoot}/coverage/{projectName}"]
     },
+    "check-types": {
+      "cache": true,
+      "inputs": ["production", "^production"]
+    },
+    "lint": {
+      "cache": true
+    },
     "build": {
       "cache": true,
       "dependsOn": ["^build"],
