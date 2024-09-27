@@ -63,10 +63,9 @@ const config = buildConfig({
     schemaOutputFile: path.resolve(workspacePath, 'packages/data-models/cms-schema.graphql'),
   },
   typescript: {
-    declare: false,
     outputFile: path.resolve(
       workspacePath,
-      'packages/data-models/src/lib/cms-types/payload-types.ts',
+      'packages/data-models/src/payload-types.ts',
     ),
   },
 

@@ -358,6 +358,9 @@ importers:
       '@peaks/common-utils':
         specifier: workspace:^
         version: link:../common-utils
+      '@peaks/data-models':
+        specifier: workspace:^
+        version: link:../data-models
 
   packages/cms-utils:
     dependencies:

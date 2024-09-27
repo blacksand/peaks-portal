@@ -3,4 +3,4 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
-/packages/data-models/src/lib/cms-types/payload-types.ts
+/packages/data-models/src/payload-types.ts

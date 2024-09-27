@@ -1,7 +1,7 @@
 import type { Permissions } from 'payload'
 import type { DeepReadonly } from 'ts-essentials'
 
-import type { User } from '../cms-types/payload-types'
+import type { User } from '../../payload-types'
 
 export type ClientSessionUser = Readonly<Pick<User, 'id' | 'username' | 'name' | 'roles'>>
 

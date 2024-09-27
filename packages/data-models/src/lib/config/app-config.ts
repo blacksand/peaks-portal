@@ -1,4 +1,4 @@
-import type { Config } from '../cms-types/payload-types'
+import type { Config } from '../../payload-types'
 
 export interface AppConfig {
   readonly admin: {
