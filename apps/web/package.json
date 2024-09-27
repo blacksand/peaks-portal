@@ -9,8 +9,9 @@
   "main": "server.js",
   "scripts": {},
   "dependencies": {
-    "@payloadcms/next": "3.0.0-beta.108",
-    "@payloadcms/richtext-lexical": "3.0.0-beta.108",
+    "@payloadcms/next": "3.0.0-beta.109",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.109",
+    "@payloadcms/ui": "3.0.0-beta.109",
     "@peaks/cms-config": "workspace:^",
     "@peaks/cms-fields": "workspace:^",
     "@peaks/data-models": "workspace:^",

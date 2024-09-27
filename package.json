@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "next": "15.0.0-canary.160",
-    "payload": "3.0.0-beta.108",
+    "payload": "3.0.0-beta.109",
     "react": "19.0.0-rc-5dcb0097-20240918",
     "react-dom": "19.0.0-rc-5dcb0097-20240918",
     "remeda": "^2.14.0",
