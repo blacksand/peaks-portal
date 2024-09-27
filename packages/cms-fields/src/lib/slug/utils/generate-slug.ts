@@ -3,11 +3,11 @@ import { isString } from '@peaks/common-utils'
 import { regex } from './regex'
 
 function slug(value: string, maintainCase = false) {
-  return (maintainCase ? value.toLowerCase() : value)
+  return (maintainCase ? value : value.toLowerCase())
     .replaceAll(regex, '')
-    .replaceAll(' ', '-')
+    .replaceAll(/\s+/g, '-')
 }
 
-export function generateSlug(value: unknown) {
-  return isString(value) ? slug(value) : ''
+export function generateSlug(value: unknown, maintainCase = false) {
+  return isString(value) ? slug(value, maintainCase) : ''
 }

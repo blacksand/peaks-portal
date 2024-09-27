@@ -6,6 +6,8 @@ import type { MappedComponent, TextField, TextFieldClientProps, Validate } from 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { ChangeEvent } from 'react'
 
+import { isObject } from '@peaks/common-utils'
+
 import { ClearButton } from '../../common/clear-button'
 import type { SlugField } from '../field'
 import { generateSlug } from '../utils/generate-slug'
@@ -49,7 +51,7 @@ export function SlugFieldComponent(props: SlugFieldComponentProps) {
   const disabled = readOnlyFromProps || readOnlyFromContext || formProcessing || formInitializing
 
   const fromField = useFormFields(([fields]) =>
-    fieldToUse && fieldToUse in fields
+    isObject(fields) && fieldToUse in fields
       ? fields[fieldToUse as keyof typeof fields]
       : undefined,
   )
