@@ -12,6 +12,7 @@ const config = {
   content: [
     path.join(appRoot, `/${filesPattern}`),
     path.join(workspaceRoot, `packages/common-ui/${filesPattern}`),
+    path.join(workspaceRoot, `packages/cms-fields/${filesPattern}`),
     path.join(workspaceRoot, `packages/web-ui/${filesPattern}`),
   ],
   presets: [preset],

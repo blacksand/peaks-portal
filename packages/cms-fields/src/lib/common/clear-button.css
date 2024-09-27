@@ -1,9 +1,4 @@
 .field-type.has-clear {
-  .field-type__wrap {
-    display: flex;
-    gap: calc(var(--base) / 4);
-  }
-
   .clear-button__wrap {
     display: flex;
     position: absolute;
@@ -21,10 +16,6 @@
 
     &:hover {
       background-color: var(--theme-bg);
-    }
-
-    &.hidden {
-      display: none;
     }
   }
 }

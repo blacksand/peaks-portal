@@ -6,7 +6,7 @@ import type { MappedComponent, TextField, TextFieldClientProps, Validate } from 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { ChangeEvent } from 'react'
 
-import { isObject } from '@peaks/common-utils'
+import { cn, isObject } from '@peaks/common-utils'
 
 import { ClearButton } from '../../common/clear-button'
 import type { SlugField } from '../field'
@@ -85,7 +85,8 @@ export function SlugFieldComponent(props: SlugFieldComponentProps) {
 
   return (
     <TextInput
-      className={[field.admin?.className, 'slug-field', 'has-clear'].filter(Boolean).join(' ')}
+      // eslint-disable-next-line tailwindcss/no-custom-classname
+      className={cn(field.admin?.className, 'slug-field', 'has-clear')}
       afterInput={afterInput}
       beforeInput={field.admin?.components?.beforeInput}
       Description={field.admin?.components?.Description}

@@ -1,6 +1,8 @@
 import { Button } from '@payloadcms/ui'
 import type { JSX, MouseEvent } from 'react'
 
+import { cn } from '@peaks/common-utils'
+
 import './clear-button.css'
 
 export interface ClearButtonProps {
@@ -20,7 +22,7 @@ export function ClearButton({
   return (
     <div className="clear-button__wrap">
       <Button
-        className={[baseClass, className, hidden && 'hidden'].filter(Boolean).join(' ')}
+        className={cn(baseClass, className, hidden && 'hidden')}
         aria-hidden
         buttonStyle="icon-label"
         icon="x"
