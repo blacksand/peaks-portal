@@ -23,3 +23,5 @@ export { isObjectAnd } from './lib/predicates/is-object-and'
 export { isString } from './lib/predicates/is-string'
 
 export { isWhitespace } from './lib/predicates/is-whitespace'
+
+export { cn } from './lib/ui/cn'

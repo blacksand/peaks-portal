@@ -11,8 +11,10 @@
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
+    "clsx": "^2.1.1",
     "loglevel": "^1.9.2",
     "loglevel-plugin-prefix": "^0.8.4",
-    "remeda": "^2.14.0"
+    "remeda": "^2.14.0",
+    "tailwind-merge": "^2.5.2"
   }
 }
