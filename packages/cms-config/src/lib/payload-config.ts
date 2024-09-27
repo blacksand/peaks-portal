@@ -10,6 +10,8 @@ import { stringToArray } from '@peaks/common-utils'
 
 import { categories } from './collections/categories'
 import { media } from './collections/media'
+import { pages } from './collections/pages'
+import { tags } from './collections/tags'
 import { users } from './collections/users'
 import { cachedPayloadPlugin } from './config/cached-local-api'
 import { editorConfig } from './config/editor-config'
@@ -24,15 +26,15 @@ import { workspacePath } from '../workspace-path'
 const brandTitle = process.env.PEAKS_BRAND_TITLE || undefined
 const allowedCorsSites = stringToArray(process.env.PEAKS_CORS_SITES)
 
-if (!process.env.PAYLOAD_SECRET || !process.env.DATABASE_URI) {
-  throw new Error('Missing PAYLOAD_SECRET or DATABASE_URI')
-}
+// if (!process.env.PAYLOAD_SECRET || !process.env.DATABASE_URI) {
+//   throw new Error('Missing PAYLOAD_SECRET or DATABASE_URI')
+// }
 
 const config = buildConfig({
-  secret: process.env.PAYLOAD_SECRET,
+  secret: process.env.PAYLOAD_SECRET!,
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || undefined,
 
-  db: process.env.DATABASE_URI.startsWith('mongodb:')
+  db: process.env.DATABASE_URI?.startsWith('mongodb:')
     ? mongooseAdapter({ url: process.env.DATABASE_URI })
     : postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI } }),
 
@@ -107,8 +109,12 @@ const config = buildConfig({
   collections: [
     // system
     users,
+
     // content
     categories,
+    tags,
+    pages,
+
     // resources
     media,
   ],

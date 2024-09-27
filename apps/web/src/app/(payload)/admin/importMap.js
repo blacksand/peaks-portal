@@ -1,4 +1,4 @@
-import { SlugFieldComponent as SlugFieldComponent_0 } from '@peaks/cms-fields/slug'
+import { SlugFieldComponent as SlugFieldComponent_0 } from '@peaks/cms-fields/components'
 import { RichTextCell as RichTextCell_1 } from '@payloadcms/richtext-lexical/client'
 import { RichTextField as RichTextField_2 } from '@payloadcms/richtext-lexical/client'
 import { getGenerateComponentMap as getGenerateComponentMap_3 } from '@payloadcms/richtext-lexical/generateComponentMap'
@@ -26,7 +26,7 @@ import { ItalicFeatureClient as ItalicFeatureClient_24 } from '@payloadcms/richt
 import { BrandLogo as BrandLogo_25 } from '@peaks/web-ui/admin'
 
 export const importMap = {
-  "@peaks/cms-fields/slug#SlugFieldComponent": SlugFieldComponent_0,
+  "@peaks/cms-fields/components#SlugFieldComponent": SlugFieldComponent_0,
   "@payloadcms/richtext-lexical/client#RichTextCell": RichTextCell_1,
   "@payloadcms/richtext-lexical/client#RichTextField": RichTextField_2,
   "@payloadcms/richtext-lexical/generateComponentMap#getGenerateComponentMap": getGenerateComponentMap_3,

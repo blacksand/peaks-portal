@@ -13,6 +13,8 @@ export interface Config {
   collections: {
     users: User;
     categories: Category;
+    tags: Tag;
+    pages: Page;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -28,22 +30,34 @@ export interface Config {
   };
 }
 export interface UserAuthOperations {
-  forgotPassword: {
-    email: string;
-    password: string;
-  };
-  login: {
-    email: string;
-    password: string;
-  };
+  forgotPassword:
+    | {
+        email: string;
+      }
+    | {
+        username: string;
+      };
+  login:
+    | {
+        email: string;
+        password: string;
+      }
+    | {
+        password: string;
+        username: string;
+      };
   registerFirstUser: {
-    email: string;
     password: string;
+    username: string;
+    email?: string;
   };
-  unlock: {
-    email: string;
-    password: string;
-  };
+  unlock:
+    | {
+        email: string;
+      }
+    | {
+        username: string;
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -51,7 +65,6 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
-  username: string;
   name?: string | null;
   roles: ('admin' | 'anonymous' | 'contributor' | 'editor' | 'moderator' | 'user')[];
   updatedAt: string;
@@ -60,6 +73,7 @@ export interface User {
   apiKey?: string | null;
   apiKeyIndex?: string | null;
   email: string;
+  username: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
   salt?: string | null;
@@ -73,6 +87,41 @@ export interface User {
  * via the `definition` "categories".
  */
 export interface Category {
+  id: string;
+  label: string;
+  slug?: string | null;
+  parent?: (string | null) | Category;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
   id: string;
   label: string;
   slug?: string | null;
@@ -91,17 +140,31 @@ export interface Category {
     };
     [k: string]: unknown;
   } | null;
-  parent?: (string | null) | Category;
-  breadcrumbs?:
-    | {
-        doc?: (string | null) | Category;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug?: string | null;
+  title: string;
+  navigationBar?: {
+    title?: string | null;
+    style?: ('default' | 'custom') | null;
+    glassify?: boolean | null;
+    showOnHero?: boolean | null;
+    textColor?: ('black' | 'white') | null;
+  };
+  pullDownArea?: {
+    textStyle?: ('dark' | 'light') | null;
+  };
+  blocks: unknown[];
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -110,6 +173,7 @@ export interface Category {
 export interface Media {
   id: string;
   caption?: string | null;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -164,6 +228,14 @@ export interface PayloadLockedDocument {
         value: string | Category;
       } | null)
     | ({
+        relationTo: 'tags';
+        value: string | Tag;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
+    | ({
         relationTo: 'media';
         value: string | Media;
       } | null);
@@ -216,6 +288,7 @@ export interface PayloadMigration {
 export interface Auth {
   [k: string]: unknown;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
