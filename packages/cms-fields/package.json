@@ -9,6 +9,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./components": "./src/exports/components.ts",
+    "./color": "./src/exports/color.ts",
     "./link": "./src/exports/link.ts",
     "./slug": "./src/exports/slug.ts"
   },
