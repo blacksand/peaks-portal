@@ -6,7 +6,7 @@ import typography from '@tailwindcss/typography'
 import scrollbar from 'tailwind-scrollbar'
 import animate from 'tailwindcss-animate'
 
-// import fluid from '@peaks/tailwindcss-plugin-fluid'
+import fluid from '@peaks/tailwindcss-plugin-fluid'
 
 /**
  * @type {Partial<import('tailwindcss').Config>}
@@ -15,7 +15,7 @@ const preset = {
   darkMode: ['class'],
   plugins: [
     animate,
-    // fluid,
+    fluid,
     containerQueries,
     forms,
     // gridAreas,
