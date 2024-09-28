@@ -11,7 +11,7 @@
     "test": "nx test",
     "check-types": "nx check-types",
     "prepare": "husky",
-    "release": "commit-and-tag-version",
+    "release": "nx release",
     "format": "prettier --write \"**/*.{css,scss,json,md}\""
   },
   "dependencies": {
