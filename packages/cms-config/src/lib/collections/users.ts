@@ -35,7 +35,7 @@ export const users: CollectionConfig = {
     admin: access.allowUser({ roles: ['admin', 'contributor', 'editor', 'moderator'] }),
     create: access.allowAdmins(),
     delete: access.allowAdmins(),
-    read: access.allowAdminsOrSelf('id'),
+    read: access.allowUser(),
     update: access.allowAdminsOrSelf('id'),
   },
   hooks: {
