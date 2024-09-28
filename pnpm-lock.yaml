@@ -402,6 +402,9 @@ importers:
 
   packages/config-tailwind:
     dependencies:
+      '@peaks/tailwindcss-plugin-fluid':
+        specifier: workspace:*
+        version: link:../tailwindcss-plugin-fluid
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.13(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.13))(@types/node@22.5.5)(typescript@5.6.2)))
@@ -433,6 +436,12 @@ importers:
         version: link:../data-models
 
   packages/data-models: {}
+
+  packages/tailwindcss-plugin-fluid:
+    dependencies:
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.13(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.13))(@types/node@22.5.5)(typescript@5.6.2))
 
   packages/web-ui: {}
 

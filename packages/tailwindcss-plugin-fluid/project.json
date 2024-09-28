@@ -1,0 +1,9 @@
+{
+  "name": "tailwindcss-plugin-fluid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tailwindcss-plugin-fluid/src",
+  "projectType": "library",
+  "tags": ["type:util", "scope:web"],
+  "// targets": "to see all targets run: nx show project tailwindcss-plugin-fluid --web",
+  "targets": {}
+}
