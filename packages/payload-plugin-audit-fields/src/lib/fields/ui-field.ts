@@ -8,8 +8,8 @@ export function uiField(showInSidebar?: boolean) {
       label: '审计',
       admin: {
         components: {
-          Cell: '@peaks/payload-plugin-audit/components#AuditUiCell',
-          Field: '@peaks/payload-plugin-audit/components#AuditUiField',
+          Cell: '@peaks/payload-plugin-audit-fields/components#AuditUiCell',
+          Field: '@peaks/payload-plugin-audit-fields/components#AuditUiField',
         },
         position: showInSidebar ? 'sidebar' : undefined,
       },
