@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { slugs } from '@peaks/data-models'
+import { groups, slugs } from '@peaks/data-models'
 // import { setAuditFields } from '@peaks/payload-plugin-audit'
 // import { setBlurhash } from '@peaks/payload-plugin-blurhash'
 import { access, createLabels, field } from '@peaks/cms-utils'
@@ -19,7 +19,7 @@ export const media: CollectionConfig = {
 
   admin: {
     defaultColumns: ['filename', 'caption', 'mimeType', 'fileSize'],
-    group: '资源管理',
+    group: groups.resource,
     listSearchableFields: ['filename', 'caption', 'mimeType', 'createdBy'],
     useAsTitle: 'filename',
   },

@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { access, ALL_ROLES, createLabels, DEFAULT_ROLES, field } from '@peaks/cms-utils'
-import { slugs } from '@peaks/data-models'
+import { groups, slugs } from '@peaks/data-models'
 
 export const users: CollectionConfig = {
   slug: slugs.users,
@@ -9,7 +9,7 @@ export const users: CollectionConfig = {
 
   admin: {
     defaultColumns: ['username', 'email', 'name', 'roles', 'createdAt'],
-    group: '系统管理',
+    group: groups.system,
     listSearchableFields: ['username', 'email', 'name', 'roles'],
     useAsTitle: 'name',
   },

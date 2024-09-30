@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 
 import { colorField } from '@peaks/cms-fields/color'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
-import { slugs } from '@peaks/data-models'
+import { groups, slugs } from '@peaks/data-models'
 // import { iconField } from '@peaks-cms/field-icon';
 import { slugField } from '@peaks/cms-fields/slug'
 
@@ -18,7 +18,7 @@ export const categories: CollectionConfig = {
   },
   admin: {
     defaultColumns: ['label', 'color', 'slug', 'createdAt'],
-    group: '内容管理',
+    group: groups.content,
     useAsTitle: 'label',
   },
   fields: [

@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { slugField } from '@peaks/cms-fields/slug'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
-import { slugs } from '@peaks/data-models'
+import { groups, slugs } from '@peaks/data-models'
 
 export const tags: CollectionConfig = {
   slug: slugs.tags,
@@ -16,7 +16,7 @@ export const tags: CollectionConfig = {
   },
   admin: {
     defaultColumns: ['label', 'slug', 'color'],
-    group: '内容管理',
+    group: groups.content,
     listSearchableFields: ['label', 'slug', 'color'],
     useAsTitle: 'label',
   },
