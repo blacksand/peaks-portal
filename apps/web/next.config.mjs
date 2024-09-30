@@ -57,7 +57,7 @@ const nextConfig = {
           ]
         : []),
     ],
-    reactCompiler: true,
+    // reactCompiler: true,
     // 启用后会出现需要提供 list key 的警告信息
     // ppr: 'incremental',
     typedRoutes: true,

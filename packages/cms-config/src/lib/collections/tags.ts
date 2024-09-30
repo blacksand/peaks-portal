@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { colorField } from '@peaks/cms-fields/color'
 import { slugField } from '@peaks/cms-fields/slug'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
 import { groups, slugs } from '@peaks/data-models'
@@ -44,10 +45,23 @@ export const tags: CollectionConfig = {
 
     slugField({
       name: 'slug',
-      admin: { position: 'sidebar' },
+      admin: {
+        position: 'sidebar',
+      },
       fieldToUse: 'label',
       index: true,
       unique: true,
+    }),
+
+    colorField({
+      name: 'color',
+      label: '默认颜色',
+      admin: {
+        position: 'sidebar',
+      },
+      custom: {
+        disableHexInput: true,
+      },
     }),
 
     field.richText({
@@ -58,22 +72,5 @@ export const tags: CollectionConfig = {
         // leaves: ['bold', 'italic', 'underline'],
       },
     }),
-
-    // colorField({
-    //   name: 'defaultColor',
-    //   label: '默认颜色',
-    //   admin: {
-    //     position: 'sidebar',
-    //   },
-    //   custom: {
-    //     disableHexInput: true,
-    //   },
-    // }),
-    //
-    // colorField({
-    //   name: 'darkThemeColor',
-    //   label: '深色主题时颜色',
-    //   admin: { position: 'sidebar' },
-    // }),
   ],
 }

@@ -3,7 +3,8 @@ import type { FieldErrorClientProps } from 'payload'
 import type { MouseEvent } from 'react'
 
 import { ClearButton } from '../../common/clear-button'
-import type { ColorFieldClient } from './types'
+import { useBackgroundColor } from '../utils/use-background-color'
+import type { ColorFieldClient, ColorFieldValue } from './types'
 
 export function ColorPickerTrigger({
   errorProps,
@@ -17,9 +18,11 @@ export function ColorPickerTrigger({
   field: ColorFieldClient
   path: string
   readOnly?: boolean | undefined
-  value?: string
+  value?: ColorFieldValue | null
   onClear?: () => void
 }) {
+  const { name: colorName, className, style } = useBackgroundColor(value)
+
   const handleClear = (event: MouseEvent) => {
     event.preventDefault()
     event.stopPropagation()
@@ -47,15 +50,16 @@ export function ColorPickerTrigger({
         // placeholder={getTranslation(placeholder ?? '', i18n)}
         readOnly
         type="text"
-        value={JSON.stringify(value)}
+        value={colorName}
       />
 
       <div
         className={`
           absolute inset-y-0 left-0 m-[8px] size-[24px] border border-solid
           border-[var(--theme-elevation-600)]
+          ${className}
         `}
-        // style={{ background: cssColor }}
+        style={style}
       />
 
       <ClearButton

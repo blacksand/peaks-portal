@@ -1,7 +1,7 @@
 'use client'
 
-import { FieldDescription, FieldLabel, Popup, useConfig, useField, useFieldProps, useLocale } from '@payloadcms/ui'
-import type { GroupFieldClientProps, Validate } from 'payload'
+import { FieldDescription, FieldLabel, Popup, useField, useFieldProps } from '@payloadcms/ui'
+import type { JSONFieldClientProps, Validate } from 'payload'
 import { useCallback } from 'react'
 
 import { cn } from '@peaks/common-utils'
@@ -11,7 +11,7 @@ import { ColorPicker } from './color-picker'
 import { ColorPickerTrigger } from './color-picker-trigger'
 import type { ColorFieldValue } from './types'
 
-export type ColorFieldComponentProps = GroupFieldClientProps & {
+export type ColorFieldComponentProps = JSONFieldClientProps & {
   allowAlpha?: boolean
   disablePicker?: boolean
   required?: boolean
@@ -34,12 +34,6 @@ export function ColorFieldComponent({
   const readOnlyFromProps = readOnly || field.admin?.readOnly
 
   const { path: pathFromContext, readOnly: readOnlyFromContext } = useFieldProps()
-  const locale = useLocale()
-
-  const {
-    config: { localization },
-  } = useConfig()
-
   const { _path: pathFromProps } = field
 
   const memoizedValidate = useCallback<Validate<ColorFieldValue, unknown, unknown, ColorField>>(
@@ -52,7 +46,7 @@ export function ColorFieldComponent({
     [validate],
   )
 
-  const { formInitializing, formProcessing, path, setValue, showError, value } = useField<string>({
+  const { formInitializing, formProcessing, path, setValue, showError, value } = useField<ColorFieldValue>({
     path: pathFromContext ?? pathFromProps ?? field.name,
     validate: memoizedValidate as Validate,
   })
@@ -103,7 +97,7 @@ export function ColorFieldComponent({
         size="fit-content"
         verticalAlign="bottom"
       >
-        <ColorPicker allowAlpha={allowAlpha} disablePicker={disablePicker} />
+        <ColorPicker allowAlpha={allowAlpha} disablePicker={disablePicker} value={value} onColorChange={setValue} />
       </Popup>
       <FieldDescription
         Description={field.admin?.components?.Description}

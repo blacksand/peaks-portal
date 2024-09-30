@@ -485,7 +485,20 @@ importers:
         specifier: workspace:^
         version: link:../data-models
 
-  packages/payload-plugin-blurhash: {}
+  packages/payload-plugin-blurhash:
+    dependencies:
+      '@payloadcms/translations':
+        specifier: ^3.0.0-beta.109
+        version: 3.0.0-beta.109
+      '@payloadcms/ui':
+        specifier: ^3.0.0-beta.109
+        version: 3.0.0-beta.109(monaco-editor@0.52.0)(next@15.0.0-canary.160(@babel/core@7.25.2)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@0.0.0-experimental-6067d4e-20240924)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(sass@1.79.3))(payload@3.0.0-beta.109(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(types-react@19.0.0-rc.1)(typescript@5.6.2)
+      blurhash:
+        specifier: ^2.0.5
+        version: 2.0.5
+      react-blurhash:
+        specifier: ^0.3.0
+        version: 0.3.0(blurhash@2.0.5)(react@19.0.0-rc-5dcb0097-20240918)
 
   packages/tailwindcss-plugin-fluid:
     dependencies:
@@ -4794,6 +4807,9 @@ packages:
 
   bl@5.1.0:
     resolution: {integrity: sha512-tv1ZJHLfTDnXE6tMHv73YgSJaWR2AFuPwMntBe7XL/GBFHnT0CLnsHMogfk5+GzCDC5ZWarSCYaIGATZt9dNsQ==}
+
+  blurhash@2.0.5:
+    resolution: {integrity: sha512-cRygWd7kGBQO3VEhPiTgq4Wc43ctsM+o46urrmPOiuAe+07fzlSB9OJVdpgDL0jPqXUVQ9ht7aq7kxOeJHRK+w==}
 
   body-parser@1.20.3:
     resolution: {integrity: sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==}
@@ -9457,6 +9473,12 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-5dcb0097-20240918
       react-dom: 19.0.0-rc-5dcb0097-20240918
+
+  react-blurhash@0.3.0:
+    resolution: {integrity: sha512-XlKr4Ns1iYFRnk6DkAblNbAwN/bTJvxTVoxMvmTcURdc5oLoXZwqAF9N3LZUh/HT+QFlq5n6IS6VsDGsviYAiQ==}
+    peerDependencies:
+      blurhash: ^2.0.3
+      react: 19.0.0-rc-5dcb0097-20240918
 
   react-colorful@5.6.1:
     resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
@@ -17488,6 +17510,8 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
+  blurhash@2.0.5: {}
+
   body-parser@1.20.3:
     dependencies:
       bytes: 3.1.2
@@ -23209,6 +23233,11 @@ snapshots:
       prop-types: 15.8.1
       react: 19.0.0-rc-5dcb0097-20240918
       react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
+
+  react-blurhash@0.3.0(blurhash@2.0.5)(react@19.0.0-rc-5dcb0097-20240918):
+    dependencies:
+      blurhash: 2.0.5
+      react: 19.0.0-rc-5dcb0097-20240918
 
   react-colorful@5.6.1(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:

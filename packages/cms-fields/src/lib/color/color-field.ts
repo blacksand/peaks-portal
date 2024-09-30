@@ -1,30 +1,33 @@
-import type { GroupField, Validate } from 'payload'
+import type { JSONField, Validate } from 'payload'
 
-import { createField, field } from '@peaks/cms-utils'
+import { createField } from '@peaks/cms-utils'
 
-export interface ColorField extends GroupField {
+export interface ColorField extends JSONField {
   required?: boolean
 
-  admin?: GroupField['admin'] & {
+  admin?: JSONField['admin'] & {
     allowAlpha?: boolean
     disablePicker?: boolean
   }
 }
 
-export const validateColor: Validate = () => {
-  return 'unimplemented'
+export const validateColor: Validate = (value, options) => {
+  if (options.required && value == null) {
+    return 'required'
+  }
+
+  return true
 }
 
 export function colorField({
   admin: { allowAlpha, disablePicker, ...admin } = {},
   ...overrides
-}: Partial<ColorField>): GroupField {
+}: Partial<ColorField>): JSONField {
   return createField(
     {
       name: 'color',
-      type: 'group',
+      type: 'json',
       label: 'Color',
-      interfaceName: 'Color',
       validate: validateColor,
 
       admin: {
@@ -38,24 +41,7 @@ export function colorField({
           },
         },
         ...admin,
-      },
-
-      fields: [
-        field.radio({
-          name: 'type',
-          label: 'Type',
-          defaultValue: 'theme',
-          options: [
-            { label: '主题颜色', value: 'theme' },
-            { label: '自定义', value: 'custom' },
-          ],
-        }),
-
-        field.text({
-          name: 'value',
-          label: 'Value',
-        }),
-      ],
+      } as JSONField['admin'],
     },
     overrides,
   )

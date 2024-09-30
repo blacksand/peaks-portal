@@ -1,9 +1,9 @@
 import type { CollectionConfig } from 'payload'
 
-import { groups, slugs } from '@peaks/data-models'
-// import { setAuditFields } from '@peaks/payload-plugin-audit'
-// import { setBlurhash } from '@peaks/payload-plugin-blurhash'
 import { access, createLabels, field } from '@peaks/cms-utils'
+import { groups, slugs } from '@peaks/data-models'
+import { setAuditFields } from '@peaks/payload-plugin-audit-fields'
+import { setBlurhash } from '@peaks/payload-plugin-blurhash'
 
 export const media: CollectionConfig = {
   slug: slugs.media,
@@ -22,6 +22,11 @@ export const media: CollectionConfig = {
     group: groups.resource,
     listSearchableFields: ['filename', 'caption', 'mimeType', 'createdBy'],
     useAsTitle: 'filename',
+  },
+
+  custom: {
+    ...setBlurhash({ showBlurhash: true }),
+    ...setAuditFields({ showInSidebar: true }),
   },
 
   upload: {
