@@ -1,4 +1,4 @@
-export { auditFieldPlugin } from './lib/audit-field-plugin'
+export { auditFieldsPlugin } from './lib/audit-fields-plugin'
 export { setAuditFields } from './lib/set-audit-fields'
 
-export type { AuditFieldPluginOptions, AuditFieldsOptions } from './lib/types'
+export type { AuditFieldsOptions, AuditFieldsPluginOptions } from './lib/types'

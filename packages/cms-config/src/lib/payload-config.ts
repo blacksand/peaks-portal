@@ -4,9 +4,12 @@ import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'node:path'
 import { buildConfig } from 'payload'
+import type { Config } from 'payload'
 import sharp from 'sharp'
 
 import { stringToArray } from '@peaks/common-utils'
+import { auditFieldsPlugin } from '@peaks/payload-plugin-audit-fields'
+import { blurhashPlugin } from '@peaks/payload-plugin-blurhash'
 
 import { categories } from './collections/categories'
 import { frontends } from './collections/frontends'
@@ -18,8 +21,6 @@ import { cachedPayloadPlugin } from './config/cached-local-api'
 import { editorConfig } from './config/editor-config'
 import { i18nConfig } from './config/i18n-config'
 import { livePreviewConfig } from './config/live-preview-config'
-// import { auditFieldPlugin } from '@peaks/payload-plugin-audit'
-// import { blurhashPlugin } from '@peaks/payload-plugin-blurhash'
 // import { stringToArray } from '@peaks/utils-common'
 
 import { workspacePath } from '../workspace-path'
@@ -128,14 +129,14 @@ const config = buildConfig({
 
   editor: editorConfig,
   plugins: [
-    // auditFieldPlugin({
-    //   usersSlug: users.slug as keyof Config['collections'],
-    // }),
-    // blurhashPlugin({
-    //   generateDataUrl: false,
-    //   generateSizes: true,
-    //   showBlurhash: true,
-    // }),
+    auditFieldsPlugin({
+      usersSlug: users.slug as keyof Config['collections'],
+    }),
+    blurhashPlugin({
+      generateDataUrl: false,
+      generateSizes: true,
+      showBlurhash: true,
+    }),
     cachedPayloadPlugin,
     nestedDocsPlugin({
       breadcrumbsFieldSlug: 'breadcrumbs',

@@ -16,7 +16,7 @@ export interface CollectionConfigAuditFields extends CollectionConfig {
   }
 }
 
-export interface AuditFieldPluginOptions {
+export interface AuditFieldsPluginOptions {
   ignoreCollections?: Array<keyof Config['collections']>
   usersSlug?: keyof Config['collections']
 }

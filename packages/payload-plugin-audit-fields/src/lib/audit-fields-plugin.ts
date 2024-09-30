@@ -1,14 +1,14 @@
 import type { Config } from 'payload'
 
-import type { AuditFieldPluginOptions } from './types'
+import type { AuditFieldsPluginOptions } from './types'
 import { extendAuditFields } from './utils/extend-audit-fields'
 
 const defaultIgnoreCollections = ['payload-preferences', 'payload-migrations']
 
-export function auditFieldPlugin({
+export function auditFieldsPlugin({
   ignoreCollections,
   usersSlug,
-}: Partial<AuditFieldPluginOptions> = {}) {
+}: Partial<AuditFieldsPluginOptions> = {}) {
   const collectionsToIgnore = new Set([
     ...defaultIgnoreCollections,
     ...ignoreCollections ?? [],
