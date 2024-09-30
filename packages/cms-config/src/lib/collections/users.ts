@@ -81,22 +81,22 @@ export const users: CollectionConfig = {
       saveToJWT: true,
     }),
 
-    // field.relationship({
-    //   name: 'frontends',
-    //   label: '关联的前端应用',
-    //   access: {
-    //     create: access.allowAdmins(),
-    //     read: access.allowAdmins(),
-    //     update: access.allowAdmins(),
-    //   },
-    //   admin: {
-    //     description: '用户允许访问的前端应用',
-    //   },
-    //   hasMany: true,
-    //   maxDepth: 0,
-    //   relationTo: slugs.frontends,
-    //   required: false,
-    //   saveToJWT: true,
-    // }),
+    field.relationship({
+      name: 'frontends',
+      label: '关联的前端应用',
+      access: {
+        create: access.allowAdmins(),
+        read: access.allowUser(),
+        update: access.allowAdmins(),
+      },
+      admin: {
+        description: '用户允许访问的前端应用',
+      },
+      hasMany: true,
+      maxDepth: 0,
+      relationTo: slugs.frontends,
+      required: false,
+      saveToJWT: true,
+    }),
   ],
 }

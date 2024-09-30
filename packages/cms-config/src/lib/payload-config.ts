@@ -9,6 +9,7 @@ import sharp from 'sharp'
 import { stringToArray } from '@peaks/common-utils'
 
 import { categories } from './collections/categories'
+import { frontends } from './collections/frontends'
 import { media } from './collections/media'
 import { pages } from './collections/pages'
 import { tags } from './collections/tags'
@@ -38,16 +39,16 @@ const config = buildConfig({
     ? mongooseAdapter({ url: process.env.DATABASE_URI })
     : postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI } }),
 
-  // async onInit(payload) {
-  //   payload.logger.info('Payload initialized')
-  //
-  //   if (process.env.PAYLOAD_SEED === 'true') {
-  //     await seed(payload)
-  //   }
-  //   else {
-  //     payload.logger.info('Payload skip seed')
-  //   }
-  // },
+  async onInit(payload) {
+    payload.logger.info('Payload initialized')
+
+    if (process.env.PAYLOAD_SEED === 'true') {
+      // await seed(payload)
+    }
+    else {
+      payload.logger.info('Payload skip seed')
+    }
+  },
 
   cookiePrefix: 'peaks-portal',
   cors: allowedCorsSites,
@@ -108,6 +109,7 @@ const config = buildConfig({
 
   collections: [
     // system
+    frontends,
     users,
 
     // content

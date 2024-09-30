@@ -1,40 +1,43 @@
 import type { CollectionConfig } from 'payload'
 
+import { colorField } from '@peaks/cms-fields/color'
+import { frontendField, previewUrlField } from '@peaks/cms-fields/frontend'
 import { slugField } from '@peaks/cms-fields/slug'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
-import { slugs } from '@peaks/data-models'
+import { groups, slugs } from '@peaks/data-models'
+import type { Page } from '@peaks/data-models/payload-types'
 
 export const pages: CollectionConfig = {
   slug: slugs.pages,
   labels: createLabels('网站页面'),
   access: {
-    // read: access.requireOne(
-    //   // 用户可以查看关联的已发布页面
-    //   access.requireAll(
-    //     access.allowPublished(),
-    //     access.allowFrontends<Page>('frontend'),
-    //   ),
-    //   // 普通管理员可以查看关联的草稿页面
-    //   access.requireAll(
-    //     access.allowUserWithRole('moderator'),
-    //     access.allowFrontends<Page>('frontend'),
-    //   ),
-    //   // 超级管理员可以查看全部内容
-    //   access.allowAdmins(),
-    // ),
-    // create: access.allowUserWithRole('admin', 'moderator'),
-    // update: access.requireOne(
-    //   access.allowAdmins(),
-    //   access.requireAll(
-    //     access.allowUserWithRole('moderator'),
-    //     access.allowFrontends<Page>('frontend'),
-    //   ),
-    // ),
+    create: access.allowUser({ roles: ['admin', 'moderator'] }),
     delete: access.allowAdmins(),
+    read: access.requireOne(
+      // 用户可以查看关联的已发布页面
+      access.requireAll(
+        access.allowPublished(),
+        access.allowFrontends<Page>('frontend'),
+      ),
+      // 普通管理员可以查看关联的草稿页面
+      access.requireAll(
+        access.allowUser({ roles: ['moderator'] }),
+        access.allowFrontends<Page>('frontend'),
+      ),
+      // 超级管理员可以查看全部内容
+      access.allowAdmins(),
+    ),
+    update: access.requireOne(
+      access.allowAdmins(),
+      access.requireAll(
+        access.allowUser({ roles: ['moderator'] }),
+        access.allowFrontends<Page>('frontend'),
+      ),
+    ),
   },
   admin: {
     defaultColumns: ['title', 'slug', 'updatedAt', 'publishedAt'],
-    group: '内容管理',
+    group: groups.content,
     useAsTitle: 'title',
   },
   custom: {
@@ -63,8 +66,8 @@ export const pages: CollectionConfig = {
       fieldToUse: 'title',
     }),
 
-    // frontendField(),
-    // previewURLField(),
+    frontendField(),
+    previewUrlField(),
 
     field.text({
       name: 'title',
@@ -77,23 +80,21 @@ export const pages: CollectionConfig = {
         {
           label: '样式与颜色',
           fields: [
-            // withRow([
-            //   colorField({
-            //     name: 'backgroundColor',
-            //     label: '背景颜色',
-            //     custom: {
-            //       allowAlpha: false,
-            //     },
-            //   }),
-            //   colorField({
-            //     name: 'textColor',
-            //     label: '文本颜色',
-            //     custom: {
-            //       allowAlpha: false,
-            //     },
-            //   }),
-            // ]),
-
+            withRow([
+              colorField({
+                name: 'backgroundColor',
+                label: '背景颜色',
+              }),
+              colorField({
+                name: 'textColor',
+                label: '文本颜色',
+              }),
+            ]),
+          ],
+        },
+        {
+          label: '移动端',
+          fields: [
             field.group({
               name: 'navigationBar',
               label: '导航栏',
@@ -102,7 +103,10 @@ export const pages: CollectionConfig = {
                   field.text({
                     name: 'title',
                     label: '导航栏标题',
-                    admin: { placeholder: '<使用页面标题>' },
+                    admin: {
+                      placeholder: '<使用页面标题>',
+                      width: '50%',
+                    },
                   }),
 
                   field.radio({
@@ -110,6 +114,7 @@ export const pages: CollectionConfig = {
                     label: '导航栏样式',
                     admin: {
                       description: '自定义导航可用于在导航栏背景显示横幅图片',
+                      width: '50%',
                     },
                     defaultValue: 'default',
                     options: [
@@ -119,28 +124,32 @@ export const pages: CollectionConfig = {
                   }),
                 ]),
 
-                withRow([
-                  field.checkbox({
-                    name: 'glassify',
-                    label: '毛玻璃效果 (仅自定义导航或 H5页面)',
-                  }),
+                field.checkbox({
+                  name: 'glassify',
+                  label: '毛玻璃效果 (仅自定义导航或 H5页面)',
+                }),
 
-                  field.checkbox({
-                    name: 'showOnHero',
-                    label: '显示在横幅之上 (仅自定义导航或 H5页面)',
-                  }),
-                ]),
+                field.checkbox({
+                  name: 'showOnHero',
+                  label: '显示在横幅之上 (仅自定义导航或 H5页面)',
+                }),
 
                 withRow([
-                  // colorField({
-                  //   name: 'backgroundColor',
-                  //   label: '背景颜色',
-                  //   custom: { allowAlpha: true },
-                  // }),
+                  colorField({
+                    name: 'backgroundColor',
+                    label: '背景颜色',
+                    admin: {
+                      allowAlpha: true,
+                      width: '50%',
+                    },
+                  }),
 
                   field.radio({
                     name: 'textColor',
                     label: '文本颜色',
+                    admin: {
+                      width: '50%',
+                    },
                     defaultValue: 'black',
                     options: [
                       { label: '黑色', value: 'black' },
@@ -156,17 +165,20 @@ export const pages: CollectionConfig = {
               label: '下拉刷新区域',
               fields: [
                 withRow([
-                  // colorField({
-                  //   name: 'backgroundColor',
-                  //   label: '背景颜色',
-                  //   custom: {
-                  //     allowAlpha: false,
-                  //   },
-                  // }),
+                  colorField({
+                    name: 'backgroundColor',
+                    label: '背景颜色',
+                    admin: {
+                      width: '50%',
+                    },
+                  }),
 
                   field.radio({
                     name: 'textStyle',
                     label: '文本样式',
+                    admin: {
+                      width: '50%',
+                    },
                     defaultValue: 'dark',
                     options: [
                       { label: '深色文本', value: 'dark' },

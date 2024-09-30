@@ -6,11 +6,30 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NavigationMenu".
+ */
+export type NavigationMenu =
+  | {
+      text: string;
+      linkType: 'custom' | 'internal';
+      url?: string | null;
+      doc?: {
+        relationTo: 'categories';
+        value: string | Category;
+      } | null;
+      newTab?: boolean | null;
+      id?: string | null;
+    }[]
+  | null;
+
 export interface Config {
   auth: {
     users: UserAuthOperations;
   };
   collections: {
+    frontends: Frontend;
     users: User;
     categories: Category;
     tags: Tag;
@@ -61,26 +80,17 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "frontends".
  */
-export interface User {
+export interface Frontend {
   id: string;
-  name?: string | null;
-  roles: ('admin' | 'anonymous' | 'contributor' | 'editor' | 'moderator' | 'user')[];
+  name: string;
+  displayName: string;
+  frontendURL: string;
+  previewURL?: string | null;
+  menus?: NavigationMenu;
   updatedAt: string;
   createdAt: string;
-  enableAPIKey?: boolean | null;
-  apiKey?: string | null;
-  apiKeyIndex?: string | null;
-  email: string;
-  username: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -98,6 +108,15 @@ export interface Category {
         label?: string | null;
         id?: string | null;
       }[]
+    | null;
+  color?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
     | null;
   description?: {
     root: {
@@ -119,12 +138,45 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: string;
+  name?: string | null;
+  roles: ('admin' | 'anonymous' | 'contributor' | 'editor' | 'moderator' | 'user')[];
+  frontends?: (string | Frontend)[] | null;
+  updatedAt: string;
+  createdAt: string;
+  enableAPIKey?: boolean | null;
+  apiKey?: string | null;
+  apiKeyIndex?: string | null;
+  email: string;
+  username: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tags".
  */
 export interface Tag {
   id: string;
   label: string;
   slug?: string | null;
+  color?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   description?: {
     root: {
       type: string;
@@ -150,15 +202,53 @@ export interface Tag {
 export interface Page {
   id: string;
   slug?: string | null;
+  frontend: string | Frontend;
+  previewURL?: string | null;
   title: string;
+  backgroundColor?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  textColor?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   navigationBar?: {
     title?: string | null;
     style?: ('default' | 'custom') | null;
     glassify?: boolean | null;
     showOnHero?: boolean | null;
+    backgroundColor?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
     textColor?: ('black' | 'white') | null;
   };
   pullDownArea?: {
+    backgroundColor?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
     textStyle?: ('dark' | 'light') | null;
   };
   blocks: unknown[];
@@ -219,6 +309,10 @@ export interface Media {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'frontends';
+        value: string | Frontend;
+      } | null)
     | ({
         relationTo: 'users';
         value: string | User;

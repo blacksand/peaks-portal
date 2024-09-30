@@ -8,5 +8,7 @@ export const slugs = {
   media: 'media',
 
   // system
+  frontends: 'frontends',
   users: 'users',
+
 } as const
