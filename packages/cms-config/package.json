@@ -23,6 +23,8 @@
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
-    "@peaks/data-models": "workspace:^"
+    "@peaks/data-models": "workspace:^",
+    "@peaks/payload-plugin-audit-fields": "workspace:^",
+    "@peaks/payload-plugin-blurhash": "workspace:^"
   }
 }

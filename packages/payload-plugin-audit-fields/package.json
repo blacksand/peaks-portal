@@ -15,7 +15,7 @@
   },
   "peerDependencies": {
     "@payloadcms/ui": "^3.0.0-beta.109",
-    "@peaks/data-models": "workspace:*"
+    "@peaks/data-models": "workspace:^"
   },
   "dependencies": {}
 }
