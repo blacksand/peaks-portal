@@ -13,7 +13,6 @@ interface UploadFile {
 }
 
 function isObject<T>(value: unknown): value is T {
-  // 如果 value 是一个对象，那么返回 true
   return typeof value === 'object' && value !== null
 }
 

@@ -1,13 +1,10 @@
 import type { Field } from 'payload'
 
-// import { BlurhashField } from '../components/blurhash-field'
 import { createBlurDataUrlField } from '../fields/create-blur-data-url-field'
 import { createBlurhashField } from '../fields/create-blurhash-field'
 import { createBlurhashSizesField } from '../fields/create-blurhash-sizes-field'
 import { beforeChangeHook } from '../hooks/before-change-hook'
 import type { BlurhashPluginOptions, CollectionConfigWithBlurhash } from '../types'
-
-const BlurhashField = '/src/lib/components/BlurhashField'
 
 export function extendCollection(
   collection: CollectionConfigWithBlurhash,
@@ -43,14 +40,20 @@ export function extendCollection(
       return field
     }
 
-    const admin = { ...field.admin } as NonNullable<Field['admin']>
-    admin.components = { ...admin.components, Field: BlurhashField }
+    const admin = {
+      ...field.admin,
+      components: {
+        ...field.admin?.components,
+        Field: '@peaks/payload-plugin-blurhash/components#BlurhashField',
+      },
+    }
 
     return { ...field, admin } as Field
   })
 
   if (!hasBlurhashField) {
     fields.push(createBlurhashField(fieldConfig))
+
     if (generateDataUrl) {
       fields.push(createBlurDataUrlField())
     }
