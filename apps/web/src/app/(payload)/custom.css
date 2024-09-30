@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
   :root {
@@ -56,7 +57,6 @@
     @apply border-[var(--theme-elevation-150)];
   }
 
-  /*
   [type='button'],
   [type='reset'],
   [type='submit'],
@@ -93,5 +93,4 @@
     font-variation-settings: inherit;
     font-feature-settings: inherit;
   }
-  */
 }
