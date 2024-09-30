@@ -59,7 +59,7 @@ const config = buildConfig({
   indexSortableFields: true,
   telemetry: false,
 
-  defaultDepth: 0,
+  defaultDepth: 1,
   maxDepth: 5,
 
   graphQL: {
