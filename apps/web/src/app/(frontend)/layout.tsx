@@ -5,9 +5,8 @@ import { getAppConfig } from '@peaks/cms-config/utilities'
 // import { Toaster } from '@peaks/ui-common/components/sonner'
 // import type { PropsWithParallelRoute } from '@peaks/web-ui'
 
-import '@peaks/config-tailwind/web.css'
-
 import { RootProviders } from '../../lib/providers/root-providers'
+import './global.css'
 
 export default async function FrontendLayout({ children }: PropsWithChildren) {
   const appConfig = await getAppConfig()

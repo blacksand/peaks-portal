@@ -1,34 +1,21 @@
-// import { addIconSelectors } from '@iconify/tailwind'
-// import gridAreas from '@savvywombat/tailwindcss-grid-areas'
 import containerQueries from '@tailwindcss/container-queries'
-import forms from '@tailwindcss/forms'
-import typography from '@tailwindcss/typography'
-import scrollbar from 'tailwind-scrollbar'
-import animate from 'tailwindcss-animate'
 
 import fluid from '@peaks/tailwindcss-plugin-fluid'
 
-/**
- * @type {Partial<import('tailwindcss').Config>}
- */
-const preset = {
-  darkMode: ['class'],
+const preset: Omit<import('tailwindcss').Config, 'content'> = {
+  corePlugins: {
+    preflight: false,
+  },
+  darkMode: ['selector', '[data-theme="dark"]'],
   plugins: [
-    animate,
     fluid,
     containerQueries,
-    forms,
-    // gridAreas,
-    // addIconSelectors(['line-md']),
-    scrollbar({ nocompatible: true }),
-    typography,
   ],
   prefix: '',
-  safelist: ['text-station-10', 'text-station-20'],
+  safelist: [],
   theme: {
     container: {
       center: true,
-      padding: '2rem',
       screens: {
         '2xl': '1400px',
       },
@@ -51,11 +38,6 @@ const preset = {
         foreground: 'hsl(var(--foreground))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-
-        station: {
-          10: 'hsl(var(--station-type-10))',
-          20: 'hsl(var(--station-type-20))',
-        },
 
         accent: {
           DEFAULT: 'hsl(var(--accent))',
@@ -90,23 +72,11 @@ const preset = {
       gridAutoRows: {
         details: 'minmax(2rem, auto)',
       },
-      // gridTemplateAreas: {
-      //   layout: [
-      //     'navbar navbar  navbar',
-      //     'sidebar header header',
-      //     'sidebar main   drawer',
-      //     'sidebar footer footer',
-      //   ],
-      // },
       gridTemplateColumns: {
-        details: '[label] var(--grid-cols-details-label-width) [content] minmax(0, 1fr) [action] 2.5rem',
-        fill: 'repeat(auto-fill, minmax(var(--grid-cols-fill-min-width), 1fr))',
-        fit: 'repeat(auto-fit, minmax(var(--grid-cols-fit-min-width), 1fr))',
-        // layout: 'auto 1fr auto',
+        fill: 'repeat(auto-fill, minmax(var(--grid-cols-min-width), 1fr))',
+        fit: 'repeat(auto-fit, minmax(var(--grid-cols-min-width), 1fr))',
       },
-      gridTemplateRows: {
-        // layout: 'min-content min-content 1fr auto',
-      },
+      gridTemplateRows: {},
       keyframes: {
         'accordion-down': {
           from: { height: '0' },

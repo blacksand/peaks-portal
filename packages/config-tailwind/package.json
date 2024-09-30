@@ -6,14 +6,9 @@
   "description": "",
   "sideEffects": ["./*.css", "./src/**/*.css"],
   "exports": {
-    ".": {
-      "types": "./src/index.d.ts",
-      "default": "./src/lib/web.js"
-    },
-    "./web": {
-      "types": "./src/index.d.ts",
-      "default": "./src/lib/web.js"
-    },
+    ".": "./src/index.ts",
+    "./payload": "./src/lib/payload/index.ts",
+    "./web": "./src/lib/web.ts",
     "./web.css": "./src/lib/web.css"
   },
   "scripts": {

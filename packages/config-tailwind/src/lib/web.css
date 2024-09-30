@@ -4,9 +4,7 @@
 
 @layer base {
   :root {
-    --grid-cols-fill-min-width: 200px;
-    --grid-cols-fit-min-width: 200px;
-    --grid-cols-details-label-width: minmax(4em, 6em);
+    --grid-cols-min-width: 80px;
     --background: 210 40% 96.1%; /* white -> slate-100 */
     --foreground: 222.2 84% 4.9%; /* slate-950 */
     --card: 0 0% 100%; /* white */
@@ -29,6 +27,7 @@
     --radius: 0.5rem;
   }
 
+  [data-theme='dark'],
   .dark {
     --background: 222.2 47.4% 11.2%; /* slate-950 -> slate-900 */
     --foreground: 214.3 31.8% 91.4%; /* slate-50 -> slate-200 */
