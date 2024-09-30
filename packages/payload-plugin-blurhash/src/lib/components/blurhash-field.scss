@@ -1,0 +1,44 @@
+.blurhash {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--theme-elevation-0);
+  background-color: var(--theme-elevation-50);
+  height: 90px;
+  overflow: hidden;
+}
+
+.blurhash__image {
+  flex: 0 0 120px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blurhash__detail {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-self: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  width: auto;
+  min-width: 0;
+}
+
+.blurhash-label {
+  overflow: hidden;
+  color: currentcolor;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blurhash-value {
+  overflow: hidden;
+  color: var(--theme-elevation-500);
+  font-size: 0.725rem;
+  line-height: 1.5em;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  word-break: break-all;
+}

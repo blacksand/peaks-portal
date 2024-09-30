@@ -1,0 +1,22 @@
+@use 'sass:math';
+
+$baseline-px: 25px !default;
+$baseline-body-size: 13px !default;
+$baseline: math.div($baseline-px, $baseline-body-size) + rem;
+
+@function base($multiplier) {
+  @return (math.div($baseline-px, $baseline-body-size) * $multiplier) + rem;
+}
+
+.blurhash-cell {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: base(-0.25) 0;
+
+  &__thumbnail {
+    display: inline-block;
+    align-items: center;
+    max-width: base(3);
+    height: base(3);
+  }
+}
