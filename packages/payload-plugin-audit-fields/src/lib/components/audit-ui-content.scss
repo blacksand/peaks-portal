@@ -1,0 +1,44 @@
+@use 'sass:math';
+
+$baseline-px: 25px !default;
+$baseline-body-size: 13px !default;
+$baseline: math.div($baseline-px, $baseline-body-size) + rem;
+
+@function base($multiplier) {
+  @return (math.div($baseline-px, $baseline-body-size) * $multiplier) + rem;
+}
+
+.audit-ui {
+  .render-fields > &:first-child {
+    margin-top: base(-0.5);
+  }
+
+  & > ul {
+    display: flex;
+    gap: var(--base);
+    padding: 0;
+    width: 100%;
+    list-style: none;
+
+    .audit-ui__item {
+      display: flex;
+      align-items: center;
+      gap: base(0.25);
+      overflow: hidden;
+    }
+
+    .audit-ui__label {
+      margin: 0;
+      color: var(--theme-elevation-500);
+      white-space: nowrap;
+    }
+
+    .audit-ui__value {
+      margin: 0;
+      overflow: hidden;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

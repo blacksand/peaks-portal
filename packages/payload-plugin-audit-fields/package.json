@@ -1,0 +1,21 @@
+{
+  "name": "@peaks/payload-plugin-audit-fields",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": [
+    "./src/**/*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./components": "./src/exports/components.ts"
+  },
+  "scripts": {
+    "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "@payloadcms/ui": "^3.0.0-beta.109",
+    "@peaks/data-models": "workspace:*"
+  },
+  "dependencies": {}
+}
