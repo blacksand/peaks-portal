@@ -26,6 +26,7 @@ export function imports({ projectRoot, workspacePath }) {
             allow: [
               'client-only',
               'server-only',
+              '**/*-css',
               '**/*.css',
               '**/*.scss',
               '**/*.sass',
