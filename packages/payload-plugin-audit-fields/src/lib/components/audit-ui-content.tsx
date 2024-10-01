@@ -1,4 +1,4 @@
-import './audit-ui-content.scss'
+import './audit-ui-content.css'
 import type { AuditUIContentProps } from './types'
 
 const baseClass = 'audit-ui'
