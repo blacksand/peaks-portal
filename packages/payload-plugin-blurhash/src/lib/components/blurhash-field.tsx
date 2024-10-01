@@ -3,7 +3,7 @@
 import { getTranslation } from '@payloadcms/translations'
 import { useField, useTranslation } from '@payloadcms/ui'
 
-import './blurhash-field.scss'
+import './blurhash-field.css'
 import { ReactBlurhash } from './react-blurhash'
 import type { BlurhashFieldProps } from './types'
 
