@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { colorField } from '@peaks/cms-fields/color'
+import { iconField } from '@peaks/cms-fields/icon'
 import { slugField } from '@peaks/cms-fields/slug'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
 import { groups, slugs } from '@peaks/data-models'
@@ -32,15 +33,13 @@ export const tags: CollectionConfig = {
         unique: true,
       }),
 
-      // iconField({
-      //   name: 'icon',
-      //   admin: { width: '50%' },
-      //   custom: {
-      //     placeholder: '<选择图标>',
-      //     placeholderSearch: '过滤图标...',
-      //     placeholderSelect: '选择图标集',
-      //   },
-      // }),
+      iconField({
+        name: 'icon',
+        admin: { width: '50%' },
+        custom: {
+          placeholder: '<选择图标>',
+        },
+      }),
     ]),
 
     slugField({

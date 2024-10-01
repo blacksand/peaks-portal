@@ -2,6 +2,7 @@ import { createBreadcrumbsField, createParentField } from '@payloadcms/plugin-ne
 import type { CollectionConfig } from 'payload'
 
 import { colorField } from '@peaks/cms-fields/color'
+import { iconField } from '@peaks/cms-fields/icon'
 import { access, createLabels, field, withRow } from '@peaks/cms-utils'
 import { groups, slugs } from '@peaks/data-models'
 // import { iconField } from '@peaks-cms/field-icon';
@@ -65,11 +66,11 @@ export const categories: CollectionConfig = {
         },
       }),
 
-      // iconField({
-      //   name: 'icon',
-      //   label: '主题图标',
-      //   admin: { width: '50%' },
-      // }),
+      iconField({
+        name: 'icon',
+        label: '主题图标',
+        admin: { width: '50%' },
+      }),
     ]),
 
     field.richText({

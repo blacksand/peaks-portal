@@ -1,0 +1,24 @@
+.icon-field {
+  .popup-button {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+  }
+
+  .popup--v-align-top {
+    .popup__content {
+      top: calc(100% + var(--popup-caret-size));
+      bottom: initial;
+      box-shadow:
+        0 -20px 35px -10px rgb(0 2 4 / 20%),
+        0 -6px 4px -4px rgb(0 2 4 / 2%);
+    }
+
+    .popup__caret {
+      top: initial;
+      bottom: calc(100% - 1px);
+      border-top-color: transparent;
+      border-bottom-color: var(--popup-bg);
+    }
+  }
+}

@@ -20,6 +20,9 @@ importers:
 
   .:
     dependencies:
+      lucide-react:
+        specifier: ^0.446.0
+        version: 0.446.0(react@19.0.0-rc-5dcb0097-20240918)
       next:
         specifier: 15.0.0-canary.160
         version: 15.0.0-canary.160(@babel/core@7.25.2)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@0.0.0-experimental-6067d4e-20240924)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(sass@1.79.3)
@@ -357,6 +360,57 @@ importers:
 
   packages/cms-fields:
     dependencies:
+      '@iconify-json/ant-design':
+        specifier: latest
+        version: 1.2.1
+      '@iconify-json/game-icons':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/gis':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/healthicons':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/line-md':
+        specifier: latest
+        version: 1.2.1
+      '@iconify-json/lucide':
+        specifier: latest
+        version: 1.2.6
+      '@iconify-json/map':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/mdi':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/medical-icon':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/simple-icons':
+        specifier: latest
+        version: 1.2.5
+      '@iconify-json/solar':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/svg-spinners':
+        specifier: latest
+        version: 1.2.0
+      '@iconify-json/twemoji':
+        specifier: latest
+        version: 1.2.0
+      '@iconify/react':
+        specifier: ^5.0.2
+        version: 5.0.2(react@19.0.0-rc-5dcb0097-20240918)
+      '@iconify/types':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@iconify/utils':
+        specifier: ^2.1.33
+        version: 2.1.33
+      '@payloadcms/translations':
+        specifier: 3.0.0-beta.109
+        version: 3.0.0-beta.109
       '@payloadcms/ui':
         specifier: 3.0.0-beta.109
         version: 3.0.0-beta.109(monaco-editor@0.52.0)(next@15.0.0-canary.160(@babel/core@7.25.2)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@0.0.0-experimental-6067d4e-20240924)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(sass@1.79.3))(payload@3.0.0-beta.109(graphql@16.9.0)(monaco-editor@0.52.0)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(types-react@19.0.0-rc.1)(typescript@5.6.2)
@@ -2349,6 +2403,56 @@ packages:
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/ant-design@1.2.1':
+    resolution: {integrity: sha512-hqqH+TQ1EUU4wC7iL98UF+bgaF6iymvNxopPcApPyTsxIgBujHLx99R8ZV5sF1F2ZZs2mTQtDlm3LwV6wMChhg==}
+
+  '@iconify-json/game-icons@1.2.0':
+    resolution: {integrity: sha512-9M0VrC2P9HOcGWyRwbpt2W9kBaZ8CBWKvLp9UCiKN8CmCpKxXJ15jL4yTOMAjEQMGt5yTv/uuMKgSuzKUNedpA==}
+
+  '@iconify-json/gis@1.2.0':
+    resolution: {integrity: sha512-3hzTc2zEMYiAqlMFh/+sMgIpOPjTepgNS1z0xRwF43lOdDKRiCUgJFEfJ42ptX0ygR1uERiD5EY8tE+Isbes3w==}
+
+  '@iconify-json/healthicons@1.2.0':
+    resolution: {integrity: sha512-CrNMxFlCJm7d28FNUCE4nlqf5FL1KD5aqO8yokh1LB+x78IXeZBggRTH7W1+QLoJiBmFsVtrAsRH+R4obs33BQ==}
+
+  '@iconify-json/line-md@1.2.1':
+    resolution: {integrity: sha512-XMga2q5PiQ2LrU7K06hfqSYOA+7UFhRwhl52xvPCPAiLmtdfWBeX38nA46mcaLj7sdNo+DK+BJy9iTrzQ0ewNw==}
+
+  '@iconify-json/lucide@1.2.6':
+    resolution: {integrity: sha512-HVLLxmG/rJ91GqpEE97OHdEwb/LfjwMVdynWIrnjvNRQNoKvrYG2N2+jABSBibEhnYQOfv+k8/7X6fK44PEtKA==}
+
+  '@iconify-json/map@1.2.0':
+    resolution: {integrity: sha512-8Q+RPKXKuwCbJpnioDS7wI/Nrze3CTdRRnX9mpuDx1WYsRJJfPXe8TtX7q7+7L1rWt3aSflMA1gw04eY704bhA==}
+
+  '@iconify-json/mdi@1.2.0':
+    resolution: {integrity: sha512-E9/3l5Syg3wfuarorFodhn4s8YorxhH3U3U20LaNBNiqw1kFNIDWhF6HymuzAD35k7RH0OBasJ+ZUyFtVVV6eg==}
+
+  '@iconify-json/medical-icon@1.2.0':
+    resolution: {integrity: sha512-CnYd2WfpSRRXJP/MHvIRWhORJohrK4DdTi8N3zWIdh0GCOXt0qitgLRmhHUdb61Js8o/AljEdpU5KuRSsxj32w==}
+
+  '@iconify-json/simple-icons@1.2.5':
+    resolution: {integrity: sha512-ucqBlm0GSjLpGQR+b61LtmHro0xkyjWl1v23AOzLTiymHK0chx7s7aeuE2s7/5/t/BzKdDu8iYuU2drawzCIQQ==}
+
+  '@iconify-json/solar@1.2.0':
+    resolution: {integrity: sha512-xMspRoN2S2Op8mgjZHgiMJq2Xqo5oVlBp/1NICTeMByfePpkEKF67Fwh5KdBRF+SBey/cNLhjkTuHmKeSIEkog==}
+
+  '@iconify-json/svg-spinners@1.2.0':
+    resolution: {integrity: sha512-0ov9JMKnqD4p/8aEzSTk+VKdmKZkRWHTqbzCEgKhL+yvpR8B1k3Ak8CO0bt6o+SBV/l8MOqUgFFgdt0xx8tLEw==}
+
+  '@iconify-json/twemoji@1.2.0':
+    resolution: {integrity: sha512-yYm2hNTDeaeKqLUKSoCGpzjPwX6EjkUFsCfSyNDedsg5iaEhlBZGPCUjOdt/Z4CVsONBWSY7gv9RORuA+CStmQ==}
+
+  '@iconify/react@5.0.2':
+    resolution: {integrity: sha512-wtmstbYlEbo4NDxFxBJkhkf9gJBDqMGr7FaqLrAUMneRV3Z+fVHLJjOhWbkAF8xDQNFC/wcTYdrWo1lnRhmagQ==}
+    peerDependencies:
+      react: 19.0.0-rc-5dcb0097-20240918
+
+  '@iconify/types@2.0.0':
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+
+  '@iconify/utils@2.1.33':
+    resolution: {integrity: sha512-jP9h6v/g0BIZx0p7XGJJVtkVnydtbgTgt9mVNcGDYwaa7UhdHdI9dvoq+gKj9sijMSJKxUPEG2JyjsgXjxL7Kw==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -7803,6 +7907,9 @@ packages:
   koa@2.15.3:
     resolution: {integrity: sha512-j/8tY9j5t+GVMLeioLaxweJiKUayFhlGqNTzf2ZGwL0ZCQijd2RLHK0SLW5Tsko8YyyqCZC2cojIb0/s62qTAg==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
+
+  kolorist@1.8.0:
+    resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
   language-subtag-registry@0.3.23:
     resolution: {integrity: sha512-0K65Lea881pHotoGEa5gDlMxt3pctLi2RplBb7Ezh4rRdLEOtgi7n4EwK9lamnUCkKBqaeKRVebTq6BAxSkpXQ==}
@@ -13654,6 +13761,77 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.3.0': {}
+
+  '@iconify-json/ant-design@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/game-icons@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/gis@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/healthicons@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/line-md@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/lucide@1.2.6':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/map@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/mdi@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/medical-icon@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/solar@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/svg-spinners@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/twemoji@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/react@5.0.2(react@19.0.0-rc-5dcb0097-20240918)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 19.0.0-rc-5dcb0097-20240918
+
+  '@iconify/types@2.0.0': {}
+
+  '@iconify/utils@2.1.33':
+    dependencies:
+      '@antfu/install-pkg': 0.4.1
+      '@antfu/utils': 0.7.10
+      '@iconify/types': 2.0.0
+      debug: 4.3.7
+      kolorist: 1.8.0
+      local-pkg: 0.5.0
+      mlly: 1.7.1
+    transitivePeerDependencies:
+      - supports-color
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -21141,6 +21319,8 @@ snapshots:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+
+  kolorist@1.8.0: {}
 
   language-subtag-registry@0.3.23: {}
 

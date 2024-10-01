@@ -1,4 +1,7 @@
-export { ColorCellComponent } from '../lib/color/components/color-cell-component'
-export { ColorFieldComponent } from '../lib/color/components/color-field-component'
+export { ColorCell } from '../lib/color/components/color-cell'
+export { ColorField } from '../lib/color/components/color-field'
 
-export { SlugFieldComponent } from '../lib/slug/components/slug-field-component'
+export { IconCell } from '../lib/icon/components/icon-cell'
+export { IconField } from '../lib/icon/components/icon-field'
+
+export { SlugField } from '../lib/slug/components/slug-field'

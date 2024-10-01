@@ -1,12 +1,11 @@
 'use client'
 
-import { FieldDescription, FieldLabel, Popup, useField, useFieldProps } from '@payloadcms/ui'
-import type { JSONFieldClientProps, Validate } from 'payload'
+import { FieldDescription, FieldLabel, Popup, useField, useFieldProps, withCondition } from '@payloadcms/ui'
+import type { JSONField, JSONFieldClientProps, Validate } from 'payload'
 import { useCallback } from 'react'
 
 import { cn } from '@peaks/common-utils'
 
-import type { ColorField } from '../color-field'
 import { ColorPicker } from './color-picker'
 import { ColorPickerTrigger } from './color-picker-trigger'
 import type { ColorFieldValue } from './types'
@@ -20,7 +19,7 @@ export type ColorFieldComponentProps = JSONFieldClientProps & {
 const fieldBaseClass = 'field-type'
 const baseClass = 'color'
 
-export function ColorFieldComponent({
+function ColorFieldComponent({
   allowAlpha,
   descriptionProps,
   disablePicker,
@@ -36,7 +35,7 @@ export function ColorFieldComponent({
   const { path: pathFromContext, readOnly: readOnlyFromContext } = useFieldProps()
   const { _path: pathFromProps } = field
 
-  const memoizedValidate = useCallback<Validate<ColorFieldValue, unknown, unknown, ColorField>>(
+  const memoizedValidate = useCallback<Validate<ColorFieldValue, unknown, unknown, JSONField>>(
     (value, options) => {
       if (typeof validate === 'function') {
         return validate(value, { ...options })
@@ -85,6 +84,7 @@ export function ColorFieldComponent({
             errorProps={errorProps}
             field={field}
             path={path}
+            placeholder="..."
             readOnly={readOnly}
             value={value}
             onClear={() => setValue(undefined)}
@@ -108,3 +108,5 @@ export function ColorFieldComponent({
     </div>
   )
 }
+
+export const ColorField = withCondition(ColorFieldComponent)

@@ -1,6 +1,6 @@
 'use client'
 
-import { TextInput, useConfig, useField, useFieldProps, useFormFields, useLocale } from '@payloadcms/ui'
+import { TextInput, useConfig, useField, useFieldProps, useFormFields, useLocale, withCondition } from '@payloadcms/ui'
 import { isFieldRTL } from '@payloadcms/ui/fields/shared'
 import type { MappedComponent, TextField, TextFieldClientProps, Validate } from 'payload'
 import { useCallback, useEffect, useMemo } from 'react'
@@ -9,13 +9,14 @@ import type { ChangeEvent } from 'react'
 import { cn, isObject } from '@peaks/common-utils'
 
 import { ClearButton } from '../../common/clear-button'
-import type { SlugField } from '../field'
 import { generateSlug } from '../utils/generate-slug'
 
-export type SlugFieldComponentProps = TextFieldClientProps &
-  Pick<SlugField, 'fieldToUse' | 'autoUpdate'>
+export type SlugFieldComponentProps = TextFieldClientProps & {
+  autoUpdate?: boolean
+  fieldToUse: string
+}
 
-export function SlugFieldComponent(props: SlugFieldComponentProps) {
+function SlugFieldComponent(props: SlugFieldComponentProps) {
   const { autoUpdate, field, fieldToUse, inputRef, readOnly, validate } = props
   const readOnlyFromProps = readOnly || field.admin?.readOnly
 
@@ -108,3 +109,5 @@ export function SlugFieldComponent(props: SlugFieldComponentProps) {
     />
   )
 }
+
+export const SlugField = withCondition(SlugFieldComponent)

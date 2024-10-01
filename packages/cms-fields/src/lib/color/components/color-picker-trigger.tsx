@@ -10,14 +10,18 @@ export function ColorPickerTrigger({
   errorProps,
   field,
   path,
+  placeholder,
   readOnly,
+  rtl,
   value,
   onClear,
 }: {
   errorProps?: FieldErrorClientProps<ColorFieldClient>
   field: ColorFieldClient
   path: string
-  readOnly?: boolean | undefined
+  placeholder: string | undefined
+  readOnly: boolean | undefined
+  rtl?: boolean | undefined
   value?: ColorFieldValue | null
   onClear?: () => void
 }) {
@@ -41,13 +45,13 @@ export function ColorPickerTrigger({
           text-[1rem] leading-[20px] outline-0
           [.field-type.color.error_&]:border-[var(--theme-error-400)]
           [.field-type.color.error_&]:bg-[var(--theme-error-100)]
-          active:border-[var(--theme-elevation-400)]
+          focus:border-[var(--theme-elevation-400)] focus:outline-0
         `}
         name={path}
         // ref={inputRef}
-        // data-rtl={rtl}
+        data-rtl={rtl}
         disabled={readOnly}
-        // placeholder={getTranslation(placeholder ?? '', i18n)}
+        placeholder={placeholder}
         readOnly
         type="text"
         value={colorName}

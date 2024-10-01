@@ -24,7 +24,7 @@ export function slugField({ autoUpdate, fieldToUse, hooks, ...overrides }: SlugF
               autoUpdate,
               fieldToUse,
             },
-            path: '@peaks/cms-fields/components#SlugFieldComponent',
+            path: '@peaks/cms-fields/components#SlugField',
           },
         },
       },

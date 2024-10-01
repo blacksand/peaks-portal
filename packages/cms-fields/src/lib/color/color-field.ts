@@ -33,11 +33,11 @@ export function colorField({
       admin: {
         components: {
           Cell: {
-            path: '@peaks/cms-fields/components#ColorCellComponent',
+            path: '@peaks/cms-fields/components#ColorCell',
           },
           Field: {
             clientProps: { allowAlpha, disablePicker },
-            path: '@peaks/cms-fields/components#ColorFieldComponent',
+            path: '@peaks/cms-fields/components#ColorField',
           },
         },
         ...admin,
