@@ -56,7 +56,7 @@ export const frontends: CollectionConfig = {
     }),
 
     field.text({
-      name: 'previewURL',
+      name: 'previewUrl',
       label: '预览页面网址',
       // required: true,
     }),

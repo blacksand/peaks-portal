@@ -87,7 +87,7 @@ export interface Frontend {
   name: string;
   displayName: string;
   frontendURL: string;
-  previewURL?: string | null;
+  previewUrl?: string | null;
   menus?: NavigationMenu;
   updatedAt: string;
   createdAt: string;
@@ -203,7 +203,7 @@ export interface Page {
   id: string;
   slug?: string | null;
   frontend: string | Frontend;
-  previewURL?: string | null;
+  previewUrl?: string | null;
   title: string;
   backgroundColor?:
     | {

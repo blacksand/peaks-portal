@@ -17,15 +17,16 @@ export function populatePreviewUrl<
     }
 
     if (isObject(frontendOrID)) {
-      return frontendOrID.previewURL
+      return frontendOrID.previewUrl
     }
 
     const frontend = await req.payload.findByID({
       id: frontendOrID as string,
       collection: slugs.frontends,
+      disableErrors: true,
       req,
     })
 
-    return frontend?.previewURL
+    return frontend?.previewUrl
   }
 }

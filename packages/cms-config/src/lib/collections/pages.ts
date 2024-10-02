@@ -7,6 +7,8 @@ import { access, createLabels, field, withRow } from '@peaks/cms-utils'
 import { groups, slugs } from '@peaks/data-models'
 import type { Page } from '@peaks/data-models/payload-types'
 
+import { generatePreviewPath } from '../config/live-preview-config'
+
 export const pages: CollectionConfig = {
   slug: slugs.pages,
   labels: createLabels('网站页面'),
@@ -39,6 +41,13 @@ export const pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt', 'publishedAt'],
     group: groups.content,
     useAsTitle: 'title',
+
+    livePreview: {
+      url: generatePreviewPath(),
+    },
+    preview: (data) => {
+      return generatePreviewPath({ collectionConfig: { slug: slugs.pages } })({ data })
+    },
   },
   custom: {
     auditFields: {

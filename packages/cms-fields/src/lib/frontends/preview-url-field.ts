@@ -6,7 +6,7 @@ import { populatePreviewUrl } from './hooks/populate-preview-url'
 
 export function previewUrlField(): TextField {
   return field.text({
-    name: 'previewURL',
+    name: 'previewUrl',
     label: '预览链接',
     admin: {
       hidden: true,
