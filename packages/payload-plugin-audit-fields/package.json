@@ -14,8 +14,13 @@
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
-    "@payloadcms/ui": "^3.0.0-beta.109",
-    "@peaks/data-models": "workspace:^"
+    "@payloadcms/ui": "catalog:payload",
+    "@peaks/data-models": "workspace:^",
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "react": "catalog:react-19"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@types/react": "catalog:react-19"
+  }
 }

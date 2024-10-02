@@ -14,10 +14,16 @@
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
-    "@payloadcms/translations": "^3.0.0-beta.109",
-    "@payloadcms/ui": "^3.0.0-beta.109",
+    "@payloadcms/translations": "catalog:payload",
+    "@payloadcms/ui": "catalog:payload",
     "blurhash": "^2.0.5",
-    "react-blurhash": "^0.3.0"
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "react": "catalog:react-19",
+    "react-blurhash": "^0.3.0",
+    "sharp": "0.33.5"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@types/react": "catalog:react-19"
+  }
 }

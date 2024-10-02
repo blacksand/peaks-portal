@@ -12,6 +12,7 @@
   },
   "peerDependencies": {
     "@peaks/common-utils": "workspace:^",
-    "@peaks/data-models": "workspace:^"
+    "@peaks/data-models": "workspace:^",
+    "payload": "catalog:payload"
   }
 }

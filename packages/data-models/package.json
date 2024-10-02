@@ -10,5 +10,8 @@
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "payload": "catalog:payload"
   }
 }

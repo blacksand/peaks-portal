@@ -9,6 +9,7 @@ catalogs:
     next: 15.0.0-canary.160
   payload:
     '@payloadcms/db-mongodb': 3.0.0-beta.109
+    '@payloadcms/db-postgres': 3.0.0-beta.109
     '@payloadcms/graphql': 3.0.0-beta.109
     '@payloadcms/next': 3.0.0-beta.109
     '@payloadcms/plugin-nested-docs': 3.0.0-beta.109
@@ -17,9 +18,15 @@ catalogs:
     '@payloadcms/translations': 3.0.0-beta.109
     '@payloadcms/ui': 3.0.0-beta.109
     payload: 3.0.0-beta.109
-  react:
+  react-19:
     '@types/react': npm:types-react@19.0.0-rc.1
     '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
-    react-dom: 19.0.0-rc-5dcb0097-20240918
-    react-is: 19.0.0-rc-5dcb0097-20240918
-    react: 19.0.0-rc-5dcb0097-20240918
+    react-dom: 19.0.0-rc-e740d4b1-20240919
+    react-is: 19.0.0-rc-e740d4b1-20240919
+    react: 19.0.0-rc-e740d4b1-20240919
+  react:
+    '@types/react': ^18.3.11
+    '@types/react-dom': ^18.3.0
+    react-dom: 18.3.1
+    react-is: 18.3.1
+    react: 18.3.1

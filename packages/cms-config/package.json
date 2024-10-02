@@ -13,18 +13,25 @@
   },
   "peerDependencies": {
     "@payload-enchants/cached-local-api": "^1.2.2",
-    "@payloadcms/db-mongodb": "3.0.0-beta.109",
-    "@payloadcms/db-postgres": "3.0.0-beta.109",
-    "@payloadcms/next": "3.0.0-beta.109",
-    "@payloadcms/plugin-nested-docs": "3.0.0-beta.109",
-    "@payloadcms/richtext-lexical": "3.0.0-beta.109",
-    "@payloadcms/storage-s3": "3.0.0-beta.109",
+    "@payloadcms/db-mongodb": "catalog:payload",
+    "@payloadcms/db-postgres": "catalog:payload",
+    "@payloadcms/next": "catalog:payload",
+    "@payloadcms/plugin-nested-docs": "catalog:payload",
+    "@payloadcms/richtext-lexical": "catalog:payload",
+    "@payloadcms/storage-s3": "catalog:payload",
     "@peaks/cms-fields": "workspace:^",
     "@peaks/cms-utils": "workspace:^",
     "@peaks/common-utils": "workspace:^",
     "@peaks/data-access": "workspace:^",
     "@peaks/data-models": "workspace:^",
     "@peaks/payload-plugin-audit-fields": "workspace:^",
-    "@peaks/payload-plugin-blurhash": "workspace:^"
+    "@peaks/payload-plugin-blurhash": "workspace:^",
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "react": ">=18",
+    "sharp": "0.33.5"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:react-19"
   }
 }

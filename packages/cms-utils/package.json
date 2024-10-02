@@ -11,6 +11,7 @@
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
   },
   "peerDependencies": {
-    "@peaks/data-models": "workspace:^"
+    "@peaks/data-models": "workspace:^",
+    "payload": "catalog:payload"
   }
 }

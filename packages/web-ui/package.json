@@ -13,5 +13,13 @@
   },
   "scripts": {
     "check-types": "tsc -p tsconfig.lib.json --noEmit"
+  },
+  "peerDependencies": {
+    "next": "catalog:next",
+    "payload": "catalog:payload",
+    "react": "catalog:react-19"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:react-19"
   }
 }
