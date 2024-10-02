@@ -1,7 +1,7 @@
 import type { FilterOptions, GroupField } from 'payload'
+import { isPlainObject } from 'remeda'
 
 import { field, withRow } from '@peaks/cms-utils'
-import { isObject } from '@peaks/common-utils'
 import { slugs } from '@peaks/data-models'
 import type { Page } from '@peaks/data-models/payload-types'
 
@@ -58,10 +58,10 @@ export function linkField(overrides?: Partial<GroupField>): GroupField {
               return true
             }
 
-            const frontendId = isObject<Partial<Page>>(data)
-              ? isObject(data.frontend)
-                ? data.frontend.id
-                : (data.frontend as string)
+            const frontendId = isPlainObject(data)
+              ? typeof data.frontend === 'string'
+                ? data.frontend
+                : data.frontend.id
               : null
 
             const published = {
