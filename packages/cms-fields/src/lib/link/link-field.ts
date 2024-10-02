@@ -1,11 +1,11 @@
-import type { GroupField } from 'payload'
+import type { FilterOptions, GroupField } from 'payload'
 
 import { field, withRow } from '@peaks/cms-utils'
+import { isObject } from '@peaks/common-utils'
 import { slugs } from '@peaks/data-models'
+import type { Page } from '@peaks/data-models/payload-types'
 
 import { validateUrl } from '../utils/validate-url'
-
-// import type { Page } from '@peaks/data-models'
 
 export function linkField(overrides?: Partial<GroupField>): GroupField {
   return field.group(
@@ -53,37 +53,38 @@ export function linkField(overrides?: Partial<GroupField>): GroupField {
           admin: {
             condition: (_, siblingData) => siblingData?.linkType === 'internal',
           },
-          // filterOptions: (({ data, relationTo }) => {
-          //   if (relationTo !== slugs.pages) {
-          //     return true
-          //   }
-          //
-          //   const frontendId = isObject<Partial<Page>>(data)
-          //     ? isObject(data.frontend)
-          //       ? data.frontend.id
-          //       : (data.frontend as string)
-          //     : null
-          //
-          //   const published = {
-          //     or: [
-          //       { _status: { exists: false } },
-          //       { _status: { equals: 'published' } },
-          //     ],
-          //   }
-          //
-          //   const sameFrontend = {
-          //     or: [
-          //       { frontend: { exists: false } },
-          //       { frontend: { equals: frontendId } },
-          //     ],
-          //   }
-          //
-          //   return frontendId ? { and: [sameFrontend, published] } : published
-          // }) as FilterOptions<Page>,
+          filterOptions: (({ data, relationTo }) => {
+            if (relationTo !== slugs.pages) {
+              return true
+            }
+
+            const frontendId = isObject<Partial<Page>>(data)
+              ? isObject(data.frontend)
+                ? data.frontend.id
+                : (data.frontend as string)
+              : null
+
+            const published = {
+              or: [
+                { _status: { exists: false } },
+                { _status: { equals: 'published' } },
+              ],
+            }
+
+            const sameFrontend = {
+              or: [
+                { frontend: { exists: false } },
+                { frontend: { equals: frontendId } },
+              ],
+            }
+
+            return frontendId ? { and: [sameFrontend, published] } : published
+          }) as FilterOptions<Page>,
+
           maxDepth: 0,
           relationTo: [
-            // slugs.pages,
-            // slugs.tags,
+            slugs.pages,
+            slugs.tags,
             slugs.categories,
           ],
           required: true,
