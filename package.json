@@ -57,6 +57,7 @@
     "eslint": "~9.11.1",
     "eslint-config-next": "catalog:next",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-config-taro": "catalog:taro",
     "eslint-flat-config-utils": "^0.4.0",
     "eslint-formatter-summary": "^1.1.0",
     "eslint-plugin-format": "^0.1.2",
@@ -98,8 +99,7 @@
     "overrides": {
       "@module-federation/bridge-react-webpack-plugin": "0.6.7",
       "eslint": "$eslint",
-      "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks",
-      "scheduler": "0.25.0-rc-5dcb0097-20240918"
+      "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks"
     }
   },
   "lint-staged": {

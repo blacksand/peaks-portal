@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "lib",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": false
+  },
+  "include": ["./src", "./types", "./config"]
+}
